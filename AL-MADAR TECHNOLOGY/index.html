@@ -44,7 +44,7 @@
             scroll-behavior: smooth;
         }
 
-        /* الشريط الترحيبي العلوي مع الروابط */
+        /* الشريط الترحيبي العلوي */
         .top-bar {
             background: linear-gradient(90deg, #0284c7, #0ea5e9, #f59e0b);
             color: #fff;
@@ -260,43 +260,13 @@
             font-size: 0.95rem;
         }
 
-        /* أزرار الأقسام */
-        .categories {
-            display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            padding: 15px;
-            max-width: 1200px;
-            margin: 0 auto;
-            scrollbar-width: none;
-        }
-        .categories::-webkit-scrollbar { display: none; }
-
-        .cat-btn {
-            background: var(--surface);
-            color: var(--text-muted);
-            border: 1px solid var(--border);
-            padding: 8px 16px;
-            border-radius: 99px;
-            white-space: nowrap;
-            font-weight: 700;
-            font-size: 0.85rem;
-            cursor: pointer;
-            flex-shrink: 0;
-        }
-        .cat-btn.active {
-            background: var(--accent);
-            color: #000;
-            border-color: var(--accent);
-        }
-
-        /* شريط فلترة الشواحن المتقدم */
+        /* شريط فلترة الشواحن */
         .chargers-subfilters {
             max-width: 1200px;
-            margin: 0 auto 15px;
+            margin: 20px auto 10px;
             padding: 0 15px;
             display: flex;
-            gap: 10px;
+            gap: 12px;
             flex-wrap: wrap;
             align-items: center;
         }
@@ -304,7 +274,7 @@
             background: var(--surface-2);
             color: var(--text);
             border: 1px solid var(--border);
-            padding: 6px 12px;
+            padding: 8px 14px;
             border-radius: 8px;
             font-size: 0.85rem;
             font-weight: 600;
@@ -318,9 +288,9 @@
         /* شبكة المنتجات */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 15px;
-            padding: 10px 15px 40px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 16px;
+            padding: 15px 15px 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -347,22 +317,36 @@
             margin-bottom: 8px;
         }
         .card-cat {
-            font-size: 0.75rem;
+            font-size: 0.78rem;
             color: var(--primary);
             font-weight: 700;
         }
+        
+        /* شارة الوكالة */
         .card-badge-agency {
             background: rgba(245, 158, 11, 0.2);
             color: var(--accent);
             border: 1px solid var(--accent);
-            font-size: 0.72rem;
+            font-size: 0.75rem;
             font-weight: 800;
             padding: 2px 8px;
             border-radius: 6px;
         }
+
+        /* شارة التجاري */
+        .card-badge-commercial {
+            background: rgba(148, 163, 184, 0.15);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
         .card-img-box {
             width: 100%;
-            height: 180px;
+            height: 190px;
             background: #0f172a;
             border-radius: 10px;
             display: flex;
@@ -377,11 +361,7 @@
             max-height: 90%;
             object-fit: contain;
         }
-        .card-icon {
-            font-size: 2.8rem;
-            text-align: center;
-            margin: 12px 0;
-        }
+
         .card-title {
             font-size: 1.05rem;
             font-weight: 800;
@@ -420,7 +400,7 @@
             padding-top: 12px;
         }
         .price {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 900;
             color: var(--success);
         }
@@ -439,7 +419,7 @@
             background: #0284c7;
         }
 
-        /* تذييل الصفحة (Footer) مع روابط التواصل */
+        /* فوتر المتجر */
         footer {
             background: var(--surface);
             border-top: 1px solid var(--border);
@@ -478,7 +458,7 @@
             background: #1877F2;
         }
 
-        /* نافذة السلة */
+        /* سلة المشتريات */
         .modal {
             display: none;
             position: fixed;
@@ -597,33 +577,24 @@
             </div>
         </div>
         <div class="search-wrapper">
-            <input type="text" id="search" class="search-input" placeholder="ابحث عن منتج (شاحن، كابل، كاميرا، لابتوب، راوتر)..." oninput="renderProducts()">
+            <input type="text" id="search" class="search-input" placeholder="ابحث عن شاحن (Dell, Lenovo, HP, Type-C)..." oninput="renderProducts()">
         </div>
     </div>
 </header>
 
 <section class="hero">
     <div class="hero-badge">🚚 ضمان وجودة + توصيل فوري لجميع أحياء صنعاء</div>
-    <h1>وجهتك التقنية الأولى في <span>صنعاء</span> للأداء الاحترافي</h1>
-    <p>نوفر لك في متجر المدار للتكنولوجيا أحدث الشواحن الأصلية، الكاميرات، اللابتوبات، ومعدات الشبكات والتخزين بأسعار منافسة وضمان موثوق.</p>
+    <h1>قسم الشواحن والمحولات الأصلية في <span>صنعاء</span></h1>
+    <p>نوفر لك في متجر المدار للتكنولوجيا تشكيلة متكاملة من شواحن ومحولات اللابتوبات الأصلية والتجارية لمختلف الماركات مع خيارات الفولتيات المتعددة وضمان الأداء.</p>
     <div class="hero-actions">
-        <a href="#products-section" class="hero-btn">🛍️ تصفح المنتجات</a>
+        <a href="#products-section" class="hero-btn">🛍️ تصفح الشواحن</a>
         <a href="https://www.instagram.com/almadar.technology" target="_blank" class="social-hero-btn">📸 تابعنا على إنستغرام</a>
         <a href="https://www.facebook.com/share/1coWXX68kv/" target="_blank" class="social-hero-btn">📘 صفحتنا على فيسبوك</a>
     </div>
 </section>
 
-<div class="categories" id="products-section">
-    <button class="cat-btn active" onclick="setCat('الكل', this)">الكل</button>
-    <button class="cat-btn" onclick="setCat('شواحن وكابلات', this)">شواحن وكابلات</button>
-    <button class="cat-btn" onclick="setCat('كاميرات', this)">كاميرات ومراقبة</button>
-    <button class="cat-btn" onclick="setCat('لابتوبات', this)">لابتوبات</button>
-    <button class="cat-btn" onclick="setCat('شبكات', this)">أجهزة شبكات</button>
-    <button class="cat-btn" onclick="setCat('تخزين وملحقات', this)">تخزين وملحقات</button>
-</div>
-
-<!-- شريط فلترة مخصص للشواحن والمحولات عند اختيار قسم الشواحن -->
-<div class="chargers-subfilters" id="chargers-filters" style="display: none;">
+<!-- شريط فلترة الشواحن حسب الشركة والفئة -->
+<div class="chargers-subfilters" id="products-section">
     <select id="charger-brand-filter" onchange="renderProducts()">
         <option value="all">جميع الشركات</option>
         <option value="Lenovo">Lenovo</option>
@@ -691,24 +662,20 @@
 
 <script>
     const STORE_CONFIG = {
-        whatsappNumber: "967770000000", // رقم واتساب المتجر
+        whatsappNumber: "967770000000",
         instagramUrl: "https://www.instagram.com/almadar.technology",
         facebookUrl: "https://www.facebook.com/share/1coWXX68kv/",
-        rates: { YER: 1, SAR: 1/142.5, USD: 1/535 }, // الأساس بالريال اليمني
+        rates: { YER: 1, SAR: 1/142.5, USD: 1/535 },
         symbols: { YER: "ر.ي", SAR: "ر.س", USD: "$" }
     };
 
-    // مصفوفة المنتجات الحقيقية بعد حذف المنتجات التجريبية وتوثيق منتجات الصور
+    // مصفوفة المنتجات الحقيقية المعتمدة - خالية من أي منتجات تجريبية وهمية
     const PRODUCTS = [
-        // ==========================================
-        // قسم الشواحن الحقيقي (وكالة 6000 | تجاري 4000)
-        // ==========================================
-
-        // --- LENOVO (وكالة) ---
+        // --- LENOVO (وكالة - 6000 ر.ي) ---
         {
             id: 101,
             name: "شاحن لابتوب لينوفو وكالة Type-C",
-            cat: "شواحن وكابلات",
+            cat: "شواحن",
             brand: "Lenovo",
             subType: "agency",
             priceYER: 6000,
@@ -722,7 +689,7 @@
         {
             id: 102,
             name: "شاحن لابتوب لينوفو وكالة رأس مستطيل (USB/Square)",
-            cat: "شواحن وكابلات",
+            cat: "شواحن",
             brand: "Lenovo",
             subType: "agency",
             priceYER: 6000,
@@ -739,8 +706,8 @@
         },
         {
             id: 103,
-            name: "شاحن لابتوب لينوفو وكالة منفذ دائري برأس أصفر (8.0*5.5 مم)",
-            cat: "شواحن وكابلات",
+            name: "شاحن لابتوب لينوفو وكالة رأس أصفر (8.0*5.5 مم)",
+            cat: "شواحن",
             brand: "Lenovo",
             subType: "agency",
             priceYER: 6000,
@@ -754,7 +721,7 @@
         {
             id: 104,
             name: "شاحن لابتوب لينوفو وكالة رأس رفيع (4.0*1.7 مم)",
-            cat: "شواحن وكابلات",
+            cat: "شواحن",
             brand: "Lenovo",
             subType: "agency",
             priceYER: 6000,
@@ -765,11 +732,11 @@
             ]
         },
 
-        // --- DELL (وكالة) ---
+        // --- DELL (وكالة - 6000 ر.ي) ---
         {
             id: 105,
             name: "شاحن لابتوب ديل وكالة Type-C",
-            cat: "شواحن وكابلات",
+            cat: "شواحن",
             brand: "Dell",
             subType: "agency",
             priceYER: 6000,
@@ -783,7 +750,7 @@
         {
             id: 106,
             name: "شاحن لابتوب ديل وكالة رأس عريض بإبرة (7.4*5.0 مم)",
-            cat: "شواحن وكابلات",
+            cat: "شواحن",
             brand: "Dell",
             subType: "agency",
             priceYER: 6000,
@@ -799,7 +766,7 @@
         {
             id: 107,
             name: "شاحن لابتوب ديل وكالة رأس رفيع (4.5*3.0 مم)",
-            cat: "شواحن وكابلات",
+            cat: "شواحن",
             brand: "Dell",
             subType: "agency",
             priceYER: 6000,
@@ -811,11 +778,11 @@
             ]
         },
 
-        // --- HP (وكالة) ---
+        // --- HP (وكالة - 6000 ر.ي) ---
         {
             id: 108,
             name: "شاحن لابتوب إتش بي وكالة رأس أزرق رفيع (4.5*3.0 مم)",
-            cat: "شواحن وكابلات",
+            cat: "شواحن",
             brand: "HP",
             subType: "agency",
             priceYER: 6000,
@@ -830,8 +797,8 @@
         },
         {
             id: 109,
-            name: "شاحن لابتوب إتش بي وكالة منفذ دائري عريض (7.4*5.0 مم)",
-            cat: "شواحن وكابلات",
+            name: "شاحن لابتوب إتش بي وكالة رأس عريض (7.4*5.0 مم)",
+            cat: "شواحن",
             brand: "HP",
             subType: "agency",
             priceYER: 6000,
@@ -843,11 +810,11 @@
             ]
         },
 
-        // --- ASUS & SONY & SAMSUNG & LG & MSI & SURFACE (وكالة) ---
+        // --- ASUS & SONY & SAMSUNG & LG & MSI & SURFACE (وكالة - 6000 ر.ي) ---
         {
             id: 110,
-            name: "شاحن لابتوب آسوس روج للألعاب وكالة (ASUS ROG)",
-            cat: "شواحن وكابلات",
+            name: "شاحن ألعاب لابتوب آسوس روج وكالة (ASUS ROG)",
+            cat: "شواحن",
             brand: "Asus",
             subType: "agency",
             priceYER: 6000,
@@ -861,7 +828,7 @@
         {
             id: 111,
             name: "شاحن لابتوب سوني وكالة (6.5*4.4 مم)",
-            cat: "شواحن وكابلات",
+            cat: "شواحن",
             brand: "Sony",
             subType: "agency",
             priceYER: 6000,
@@ -874,7 +841,7 @@
         {
             id: 112,
             name: "شاحن لابتوب سامسونج (6.5*4.4 مم)",
-            cat: "شواحن وكابلات",
+            cat: "شواحن",
             brand: "Samsung",
             subType: "agency",
             priceYER: 6000,
@@ -887,7 +854,7 @@
         {
             id: 113,
             name: "شاحن لابتوب إل جي وكالة (6.5*4.4 مم)",
-            cat: "شواحن وكابلات",
+            cat: "شواحن",
             brand: "LG",
             subType: "agency",
             priceYER: 6000,
@@ -900,7 +867,7 @@
         {
             id: 114,
             name: "شاحن لابتوب إم إس آي وكالة (MSI)",
-            cat: "شواحن وكابلات",
+            cat: "شواحن",
             brand: "MSI",
             subType: "agency",
             priceYER: 6000,
@@ -913,7 +880,7 @@
         {
             id: 115,
             name: "شاحن سيرفس برو وكالة (Surface Pro Magnetic)",
-            cat: "شواحن وكابلات",
+            cat: "شواحن",
             brand: "Microsoft",
             subType: "agency",
             priceYER: 6000,
@@ -925,11 +892,11 @@
             ]
         },
 
-        // --- الشواحن والمحولات التجارية (تجاري 4000 ر.ي) ---
+        // --- الشواحن والمحولات التجارية (تجاري - 4000 ر.ي) ---
         {
             id: 116,
             name: "شاحن لابتوب توشيبا (5.5*2.5 مم)",
-            cat: "شواحن وكابلات",
+            cat: "شواحن",
             brand: "Toshiba",
             subType: "commercial",
             priceYER: 4000,
@@ -942,7 +909,7 @@
         {
             id: 117,
             name: "محول راوتر تي بي لينك (5.5*2.5 مم)",
-            cat: "شواحن وكابلات",
+            cat: "شواحن",
             brand: "TP-Link",
             subType: "commercial",
             priceYER: 4000,
@@ -956,7 +923,7 @@
         {
             id: 118,
             name: "محول كاميرات مراقبة وDVR منفذ 4 فتحات (4PIN)",
-            cat: "شواحن وكابلات",
+            cat: "شواحن",
             brand: "Generic",
             subType: "commercial",
             priceYER: 4000,
@@ -971,7 +938,7 @@
         {
             id: 119,
             name: "محول طاقة قياسي 12 فولت للأجهزة الإلكترونية",
-            cat: "شواحن وكابلات",
+            cat: "شواحن",
             brand: "Generic",
             subType: "commercial",
             priceYER: 4000,
@@ -987,7 +954,7 @@
         {
             id: 120,
             name: "محول طاقة 24 فولت لمعدات الشبكات والاتصالات",
-            cat: "شواحن وكابلات",
+            cat: "شواحن",
             brand: "Generic",
             subType: "commercial",
             priceYER: 4000,
@@ -1003,7 +970,7 @@
         {
             id: 121,
             name: "شاحن بطاريات وسكوتر كهربائي ذكي (42V - 52V)",
-            cat: "شواحن وكابلات",
+            cat: "شواحن",
             brand: "Generic",
             subType: "commercial",
             priceYER: 4000,
@@ -1014,19 +981,9 @@
                 { label: "42V 2A (3-Pin)", image: "IMG-20261111-WA0083.jpg" },
                 { label: "52V 2.5A (5.5*2.5 مم)", image: "IMG-20261111-WA0103.jpg" }
             ]
-        },
-
-        // ==========================================
-        // بقية أقسام المتجر الأساسية (تم الحفاظ عليها بالكامل)
-        // ==========================================
-        { id: 4, name: "كاميرا مراقبة ذكية Wi-Fi 360°", cat: "كاميرات", priceYER: 14980, icon: "📷", desc: "دقة 2K مع رؤية ليلية واضحة وتتبع ذكي للحركة عبر الجوال." },
-        { id: 5, name: "كاميرا ويب احترافية Full HD 1080p", cat: "كاميرات", priceYER: 11770, icon: "🎥", desc: "مايكروفون مدمج عازل للضوضاء مثالية للاجتماعات والدراسة." },
-        { id: 6, name: "لابتوب Dell Latitude 7490", cat: "لابتوبات", priceYER: 149800, icon: "💻", desc: "معالج Core i7 الجيل الثامن، رام 16GB، تخزين 512GB SSD." },
-        { id: 7, name: "راوتر MikroTik hAP ac2", cat: "شبكات", priceYER: 34775, icon: "📡", desc: "راوتر احترافي ثنائي النطاق بـ 5 منافذ جيجابت لإدارة الشبكات." },
-        { id: 8, name: "هارد خارجي SSD Kingston 1TB", cat: "تخزين وملحقات", priceYER: 40125, icon: "💽", desc: "سرعة نقل فائقة USB 3.2 مقاوم للصدمات وحجم جيب." }
+        }
     ];
 
-    let currentCat = "الكل";
     let cart = [];
 
     function toggleTheme() {
@@ -1037,21 +994,6 @@
         const cur = document.getElementById("currency").value;
         const val = Math.round(yer * STORE_CONFIG.rates[cur]);
         return val.toLocaleString() + " " + STORE_CONFIG.symbols[cur];
-    }
-
-    function setCat(cat, btn) {
-        currentCat = cat;
-        document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-
-        const subfilters = document.getElementById("chargers-filters");
-        if (cat === "شواحن وكابلات") {
-            subfilters.style.display = "flex";
-        } else {
-            subfilters.style.display = "none";
-        }
-
-        renderProducts();
     }
 
     function onVariantChange(productId, selectElem) {
@@ -1065,55 +1007,46 @@
 
     function renderProducts() {
         const q = document.getElementById("search").value.trim().toLowerCase();
-        const brandFilter = document.getElementById("charger-brand-filter") ? document.getElementById("charger-brand-filter").value : "all";
-        const typeFilter = document.getElementById("charger-type-filter") ? document.getElementById("charger-type-filter").value : "all";
+        const brandFilter = document.getElementById("charger-brand-filter").value;
+        const typeFilter = document.getElementById("charger-type-filter").value;
         const grid = document.getElementById("products-grid");
         grid.innerHTML = "";
 
         const filtered = PRODUCTS.filter(p => {
-            const matchesCategory = (currentCat === "الكل" || p.cat === currentCat);
             const matchesSearch = p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q);
+            const matchesBrand = (brandFilter === "all" || p.brand === brandFilter);
+            const matchesType = (typeFilter === "all" || p.subType === typeFilter);
 
-            if (!matchesCategory || !matchesSearch) return false;
-
-            if (currentCat === "شواحن وكابلات" || (currentCat === "الكل" && p.cat === "شواحن وكابلات")) {
-                if (brandFilter !== "all" && p.brand !== brandFilter) return false;
-                if (typeFilter !== "all" && p.subType !== typeFilter) return false;
-            }
-            return true;
+            return matchesSearch && matchesBrand && matchesType;
         });
 
         filtered.forEach(p => {
-            let mediaHtml = "";
-            let variantsHtml = "";
+            let mediaHtml = `
+                <div class="card-img-box">
+                    <img id="img-prod-${p.id}" src="${p.variants[0].image}" alt="${p.name}">
+                </div>
+            `;
 
-            if (p.variants && p.variants.length > 0) {
-                mediaHtml = `
-                    <div class="card-img-box">
-                        <img id="img-prod-${p.id}" src="${p.variants[0].image}" alt="${p.name}">
-                    </div>
-                `;
+            let options = p.variants.map(v => `<option value="${v.label}" data-img="${v.image}">${v.label}</option>`).join("");
+            let variantsHtml = `
+                <div class="card-variant-box">
+                    <label for="select-prod-${p.id}">الفولتية / المواصفة المتاحة:</label>
+                    <select id="select-prod-${p.id}" onchange="onVariantChange(${p.id}, this)">
+                        ${options}
+                    </select>
+                </div>
+            `;
 
-                let options = p.variants.map(v => `<option value="${v.label}" data-img="${v.image}">${v.label}</option>`).join("");
-                variantsHtml = `
-                    <div class="card-variant-box">
-                        <label for="select-prod-${p.id}">الفولتية / المواصفة المتوفرة:</label>
-                        <select id="select-prod-${p.id}" onchange="onVariantChange(${p.id}, this)">
-                            ${options}
-                        </select>
-                    </div>
-                `;
-            } else if (p.icon) {
-                mediaHtml = `<div class="card-icon">${p.icon}</div>`;
-            }
-
-            const badgeHtml = (p.subType === "agency") ? `<span class="card-badge-agency">وكالة</span>` : "";
+            // شارة التصنيف (وكالة أو تجاري)
+            const badgeHtml = (p.subType === "agency") 
+                ? `<span class="card-badge-agency">وكالة</span>` 
+                : `<span class="card-badge-commercial">تجاري</span>`;
 
             grid.innerHTML += `
                 <div class="card">
                     <div>
                         <div class="card-top-info">
-                            <span class="card-cat">${p.brand ? p.brand : p.cat}</span>
+                            <span class="card-cat">${p.brand}</span>
                             ${badgeHtml}
                         </div>
                         ${mediaHtml}
@@ -1158,6 +1091,7 @@
                 priceYER: p.priceYER,
                 variant: selectedVariant,
                 image: selectedImg,
+                type: p.subType === 'agency' ? 'وكالة' : 'تجاري',
                 qty: 1
             });
         }
@@ -1185,7 +1119,7 @@
             container.innerHTML += `
                 <div class="cart-item">
                     <div>
-                        <strong>${i.name}</strong><br>
+                        <strong>${i.name}</strong> <span style="font-size:0.75rem; color:var(--accent);">[${i.type}]</span><br>
                         <small style="color:var(--text-muted)">${formatPrice(i.priceYER)} × ${i.qty}</small>
                     </div>
                     <div class="qty-btns">
@@ -1212,7 +1146,7 @@
         let totalYER = 0;
         cart.forEach(i => {
             totalYER += i.priceYER * i.qty;
-            msg += `▪️ ${i.name} (العدد: ${i.qty}) - ${formatPrice(i.priceYER * i.qty)}\n`;
+            msg += `▪️ ${i.name} [${i.type}] (العدد: ${i.qty}) - ${formatPrice(i.priceYER * i.qty)}\n`;
         });
         msg += `------------------\n💰 *الإجمالي:* ${formatPrice(totalYER)}`;
 
