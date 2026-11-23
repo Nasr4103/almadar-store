@@ -58,11 +58,7 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-       <div class="top-bar-links">
-        <a href="https://wa.me/967776577218" target="_blank">💬 واتساب</a>
-        <a href="https://www.instagram.com/almadar.technology" target="_blank">📸 إنستغرام</a>
-        <a href="https://www.facebook.com/share/1coWXX68kv/" target="_blank">📘 فيسبوك</a>
-    </div>
+        .top-bar-links { display: inline-flex; gap: 8px; flex-wrap: wrap; }
         .top-bar a {
             background: rgba(0, 0, 0, 0.25);
             color: #fff;
@@ -72,8 +68,13 @@
             font-weight: 800;
             font-size: 0.8rem;
             transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
         }
         .top-bar a:hover { background: rgba(0, 0, 0, 0.45); }
+        .top-bar .wa-top { background: #25D366; color: #fff; }
+        .top-bar .wa-top:hover { background: #1ebe57; }
 
         header {
             background: var(--surface);
@@ -288,7 +289,8 @@
             border-radius: 6px;
         }
 
-      .card-img-box {
+        /* تعديل حجم المربع ليصبح 4/3 وبدون فراغات جانبية */
+        .card-img-box {
             width: 100%;
             aspect-ratio: 4 / 3;
             background: #000000;
@@ -296,6 +298,9 @@
             overflow: hidden;
             margin-bottom: 12px;
             border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .card-img-box img {
             width: 100%;
@@ -355,11 +360,7 @@
             margin-top: 20px;
         }
         .footer-title { font-size: 1.2rem; font-weight: 900; color: var(--accent); margin-bottom: 8px; }
-       <div class="social-links">
-        <a href="https://wa.me/967776577218" target="_blank" class="social-btn wa-btn">💬 WhatsApp</a>
-        <a href="https://www.instagram.com/almadar.technology" target="_blank" class="social-btn insta-btn">📸 Instagram</a>
-        <a href="https://www.facebook.com/share/1coWXX68kv/" target="_blank" class="social-btn fb-btn">📘 Facebook</a>
-    </div>
+        .social-links { display: flex; justify-content: center; gap: 12px; margin: 15px 0; flex-wrap: wrap; }
         .social-btn {
             display: inline-flex;
             align-items: center;
@@ -371,11 +372,11 @@
             font-size: 0.9rem;
             color: #fff;
         }
-        
-       .insta-btn { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .insta-btn { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
         .fb-btn { background: #1877F2; }
         .wa-btn { background: #25D366; }
-        
+        .wa-btn:hover { background: #1ebe57; }
+
         .modal {
             display: none;
             position: fixed;
@@ -446,6 +447,7 @@
             margin-top: 16px;
             cursor: pointer;
         }
+        .whatsapp-btn:hover { background: #1ebe57; }
     </style>
 </head>
 <body>
@@ -453,6 +455,7 @@
 <div class="top-bar">
     <span>🚚 متجر المدار للتكنولوجيا - توصيل سريع لكافة مناطق صنعاء</span>
     <div class="top-bar-links">
+        <a href="https://wa.me/967776577218" target="_blank" class="wa-top">💬 واتساب</a>
         <a href="https://www.instagram.com/almadar.technology" target="_blank">📸 إنستغرام</a>
         <a href="https://www.facebook.com/share/1coWXX68kv/" target="_blank">📘 فيسبوك</a>
     </div>
@@ -529,6 +532,7 @@
 <footer>
     <div class="footer-title">⚡ متجر المدار للتكنولوجيا | صنعاء</div>
     <div class="social-links">
+        <a href="https://wa.me/967776577218" target="_blank" class="social-btn wa-btn">💬 WhatsApp</a>
         <a href="https://www.instagram.com/almadar.technology" target="_blank" class="social-btn insta-btn">📸 Instagram</a>
         <a href="https://www.facebook.com/share/1coWXX68kv/" target="_blank" class="social-btn fb-btn">📘 Facebook</a>
     </div>
@@ -567,8 +571,8 @@
 </div>
 
 <script>
- const STORE_CONFIG = {
-        whatsappNumber: "967776577218", // تم تعديل الرقم هنا
+    const STORE_CONFIG = {
+        whatsappNumber: "967776577218", // رقم الواتساب المعدل هنا
         instagramUrl: "https://www.instagram.com/almadar.technology",
         facebookUrl: "https://www.facebook.com/share/1coWXX68kv/",
         rates: { YER: 1, SAR: 1/142.5, USD: 1/535 },
@@ -579,7 +583,7 @@
         // ==========================================
         // 1. قسم الشواحن والمحولات (حقيقي 100%)
         // ==========================================
-      {
+        {
             id: 101,
             name: "شاحن لابتوب لينوفو وكالة Type-C",
             cat: "شواحن",
@@ -638,7 +642,7 @@
                 { label: "20V 3.25A (65W)", image: "IMG-20261111-WA0035.jpg" }
             ]
         },
-      {
+        {
             id: 105,
             name: "شاحن لابتوب ديل وكالة Type-C",
             cat: "شواحن",
@@ -652,7 +656,7 @@
                 { label: "20V 4.5A (90W)", image: "imges/105_Dell_Type-C.jfif" }
             ]
         },
-      {
+        {
             id: 106,
             name: "شاحن لابتوب ديل وكالة رأس عريض بإبرة (7.4*5.0 مم)",
             cat: "شواحن",
