@@ -115,9 +115,86 @@
             width: 100%;
         }
 
-        .logo { display: flex; flex-direction: column; line-height: 1.2; }
-        .logo-ar { font-size: 1.25rem; font-weight: 900; color: var(--accent); }
-        .logo-en { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.5px; }
+        /* تنسيق الشعار المعتمد almadar-logo.png بحركة هادئة وواضحة */
+        .brand-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .brand-logo-card {
+            background: #ffffff;
+            padding: 4px 10px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1.5px solid rgba(212, 167, 44, 0.65);
+            animation: logoGlow 3.2s ease-in-out infinite;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+            flex-shrink: 0;
+        }
+
+        .brand-link:hover .brand-logo-card {
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 6px 18px rgba(212, 167, 44, 0.35);
+        }
+
+        .brand-logo-img {
+            height: 44px;
+            width: auto;
+            max-width: 90px;
+            object-fit: contain;
+            display: block;
+            animation: logoFloat 3.8s ease-in-out infinite;
+        }
+
+        .logo-text-wrap {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.15;
+        }
+
+        .logo-ar {
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: var(--accent);
+        }
+
+        .logo-en {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            letter-spacing: 0.4px;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(212, 167, 44, 0.25);
+                border-color: rgba(212, 167, 44, 0.45);
+            }
+            50% {
+                box-shadow: 0 0 14px 2px rgba(212, 167, 44, 0.35);
+                border-color: rgba(212, 167, 44, 0.9);
+            }
+        }
+
+        @keyframes logoFloat {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+            }
+            50% {
+                transform: translateY(-1.5px) scale(1.02);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .brand-logo-card,
+            .brand-logo-img {
+                animation: none;
+            }
+        }
 
         .controls { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 
@@ -372,6 +449,11 @@
             text-align: center;
             margin-top: 20px;
         }
+        .footer-logo-wrap {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
         .footer-title { font-size: 1.2rem; font-weight: 900; color: var(--accent); margin-bottom: 8px; }
         .social-links { display: flex; justify-content: center; gap: 12px; margin: 15px 0; flex-wrap: wrap; }
         .social-btn {
@@ -477,10 +559,15 @@
 <header>
     <div class="header-container">
         <div class="header-top">
-            <div class="logo">
-                <span class="logo-ar">⚡ المدار للتكنولوجيا</span>
-                <span class="logo-en">AL-MADAR TECHNOLOGY STORE</span>
-            </div>
+            <a href="#" class="brand-link" title="المدار للتكنولوجيا">
+                <span class="brand-logo-card">
+                    <img src="imges/almadar-logo.png" alt="شعار المدار للتكنولوجيا" class="brand-logo-img">
+                </span>
+                <div class="logo-text-wrap">
+                    <span class="logo-ar">المدار للتكنولوجيا</span>
+                    <span class="logo-en">AL-MADAR TECHNOLOGY STORE</span>
+                </div>
+            </a>
             <div class="controls">
                 <select id="currency" class="currency-select" onchange="renderProducts(); updateCartUI();">
                     <option value="YER">🇾🇪 ريال يمني (ر.ي)</option>
@@ -501,11 +588,10 @@
 
 <section class="hero">
     <div class="hero-badge">🚚 ضمان وجودة + توصيل فوري لجميع أحياء صنعاء</div>
-    <h1>متجر المدار للتكنولوجيا في <span>صنعاء</span></h1>
+    <h1>متجر <span>المدار</span> للتكنولوجيا في صنعاء</h1>
     <p>وجهتك التقنية الأولى للأجهزة والشواحن الأصلية، إكسسوارات اللابتوب، الكاميرات ومعدات الشبكات بأفضل الأسعار الموثوقة.</p>
 </section>
 
-<!-- شريط الأقسام المعتمدة في المتجر -->
 <div class="categories" id="products-section">
     <button class="cat-btn active" onclick="setCat('الكل', this)">الكل</button>
     <button class="cat-btn" onclick="setCat('شواحن', this)">الشواحن والمحولات</button>
@@ -516,7 +602,6 @@
     <button class="cat-btn" onclick="setCat('سماعات', this)">السماعات</button>
 </div>
 
-<!-- شريط الفلترة المتقدم للشواحن -->
 <div class="chargers-subfilters" id="chargers-filters" style="display: none;">
     <select id="charger-brand-filter" onchange="renderProducts()">
         <option value="all">جميع الشركات</option>
@@ -543,13 +628,20 @@
 <main class="products-grid" id="products-grid"></main>
 
 <footer>
-    <div class="footer-title">⚡ متجر المدار للتكنولوجيا | صنعاء</div>
+    <div class="footer-logo-wrap">
+        <a href="#" class="brand-link" title="المدار للتكنولوجيا">
+            <span class="brand-logo-card">
+                <img src="imges/almadar-logo.png" alt="شعار المدار للتكنولوجيا" class="brand-logo-img">
+            </span>
+        </a>
+    </div>
+    <div class="footer-title">المدار للتكنولوجيا | صنعاء</div>
     <div class="social-links">
         <a href="https://wa.me/967776577218" target="_blank" class="social-btn wa-btn">💬 WhatsApp</a>
         <a href="https://www.instagram.com/almadar.technology" target="_blank" class="social-btn insta-btn">📸 Instagram</a>
         <a href="https://www.facebook.com/share/1coWXX68kv/" target="_blank" class="social-btn fb-btn">📘 Facebook</a>
     </div>
-    <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 10px;">جميع الحقوق محفوظة © متجر المدار للتكنولوجيا</p>
+    <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 10px;">جميع الحقوق محفوظة © المدار للتكنولوجيا</p>
 </footer>
 
 <div class="modal" id="cart-modal">
@@ -593,9 +685,6 @@
     };
 
     const PRODUCTS = [
-        // ==========================================
-        // 1. قسم الشواحن والمحولات (حقيقي 100%)
-        // ==========================================
         {
             id: 101,
             name: "شاحن لابتوب لينوفو وكالة Type-C",
@@ -898,10 +987,6 @@
                 { label: "52V 2.5A (5.5*2.5 مم)", image: "IMG-20261111-WA0103.jpg" }
             ]
         },
-
-        // ==========================================
-        // 2. قسم الكاميرات
-        // ==========================================
         {
             id: 201,
             name: "كاميرا مراقبة ذكية Wi-Fi خارجية بدقة 2K",
@@ -920,10 +1005,6 @@
             icon: "🎥",
             desc: "مزودة بمايكروفون مدمج عازل للضجيج، حامل شاشة مرن، مثالية للبث والاجتماعات."
         },
-
-        // ==========================================
-        // 3. قسم اللابتوبات
-        // ==========================================
         {
             id: 301,
             name: "لابتوب Dell Latitude 7490 (Core i7)",
@@ -942,10 +1023,6 @@
             icon: "💻",
             desc: "الأداء المكتبي القوي بمعالج الجيل الثامن، بطاريتين داخلية وخارجية، رام 16GB."
         },
-
-        // ==========================================
-        // 4. قسم الشبكات
-        // ==========================================
         {
             id: 401,
             name: "راوتر MikroTik hAP ac2 جيجابت",
@@ -964,10 +1041,6 @@
             icon: "🔌",
             desc: "سويتش معدني متين بدون مراوح لتوزيع سرعات الإنترنت والشبكات المحلية دون تقطيع."
         },
-
-        // ==========================================
-        // 5. قسم التخزين والملحقات
-        // ==========================================
         {
             id: 501,
             name: "هارد خارجي SSD Kingston 1TB USB 3.2",
@@ -986,10 +1059,6 @@
             icon: "💾",
             desc: "منفذ مزدوج للهواتف الذكية وأجهزة اللابتوب لنقل سريع ومباشر للبيانات."
         },
-
-        // ==========================================
-        // 6. قسم السماعات
-        // ==========================================
         {
             id: 601,
             name: "سماعة رأس للألعاب محيطية مع مايكروفون عازل",
@@ -1198,7 +1267,7 @@
         const name = document.getElementById("cust-name").value.trim() || "عميل المدار";
         const area = document.getElementById("cust-area").value;
 
-        let msg = `*طلب جديد - متجر المدار للتكنولوجيا* ⚡\n`;
+        let msg = `*طلب جديد - المدار للتكنولوجيا* ⚡\n`;
         msg += `👤 *العميل:* ${name}\n📍 *المنطقة:* صنعاء - ${area}\n------------------\n`;
         let totalYER = 0;
         cart.forEach(i => {
@@ -1216,3 +1285,4 @@
 </script>
 </body>
 </html>
+```[cite: 26]
