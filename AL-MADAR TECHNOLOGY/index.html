@@ -323,7 +323,6 @@
         }
         .chargers-subfilters select:focus { border-color: var(--accent); }
 
-        /* قسم اللابتوبات المتكامل */
         .laptops-section {
             max-width: 1200px;
             margin: 10px auto 30px;
@@ -516,20 +515,21 @@
             font-size: 0.72rem;
             font-weight: 800;
         }
-        .laptop-media-placeholder {
-            background: var(--surface-2);
-            border: 1px dashed var(--border);
-            border-radius: 10px;
-            padding: 12px;
-            text-align: center;
-            font-size: 0.78rem;
-            color: var(--text-muted);
-        }
-        .laptop-media-placeholder img {
+        .laptop-media-box {
             width: 100%;
             aspect-ratio: 1 / 1;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .laptop-media-box img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border-radius: 8px;
             display: block;
         }
         .laptop-specs-brief {
@@ -960,7 +960,7 @@
         </div>
         <div class="laptops-meta-bar">
             <span id="laptops-count-label">عدد النتائج: 0</span>
-            <span>الأسعار في هذا القسم: <strong>تواصل للتسعير</strong> (كتالوج استفسار وليس إعلان مخزون مؤكد)</span>
+            <span>الأسعار في هذا القسم: <strong>تواصل للتسعير</strong></span>
         </div>
     </div>
 
@@ -1136,7 +1136,6 @@
         symbols: { YER: "ر.ي", SAR: "ر.س", USD: "$" }
     };
 
-    /* بيانات اللابتوبات المستقلة: مواصفات موثقة فقط، بدون اختلاق صور أو ادعاء توفر مخزون مؤكد */
     const LAPTOPS = [
         {
             id: "lp-dell-7490-i7",
@@ -1147,14 +1146,7 @@
             tierBadge: "Business",
             performanceTier: "أعمال وإنتاجية مكتبية",
             useCases: ["الأعمال والشركات", "الاستخدام اليومي والمنزلي", "الدراسة والجامعة"],
-            cpu: {
-                vendor: "Intel",
-                tier: "Core i7",
-                generation: "الجيل الثامن (8th Gen)",
-                model: "Core i7-8650U",
-                cores: 4,
-                threads: 8
-            },
+            cpu: { vendor: "Intel", tier: "Core i7", generation: "الجيل الثامن (8th Gen)", model: "Core i7-8650U", cores: 4, threads: 8 },
             ram: "8GB DDR4 (قابل للترقية حتى 32GB)",
             storage: "256GB M.2 NVMe PCIe SSD",
             gpu: { name: "Intel UHD Graphics 620", type: "مدمج" },
@@ -1175,14 +1167,7 @@
             tierBadge: "Business",
             performanceTier: "أعمال وبرمجة خفيفة",
             useCases: ["الأعمال والشركات", "البرمجة وتطوير البرمجيات", "الدراسة والجامعة"],
-            cpu: {
-                vendor: "Intel",
-                tier: "Core i5",
-                generation: "الجيل الثامن (8th Gen)",
-                model: "Core i5-8350U",
-                cores: 4,
-                threads: 8
-            },
+            cpu: { vendor: "Intel", tier: "Core i5", generation: "الجيل الثامن (8th Gen)", model: "Core i5-8350U", cores: 4, threads: 8 },
             ram: "16GB DDR4-2400 (منفذا SO-DIMM حتى 32GB)",
             storage: "512GB M.2 NVMe SSD",
             gpu: { name: "Intel UHD Graphics 620", type: "مدمج" },
@@ -1203,14 +1188,7 @@
             tierBadge: "Business",
             performanceTier: "أعمال وتعدد مهام احترافي",
             useCases: ["الأعمال والشركات", "البرمجة وتطوير البرمجيات", "خفيفة ونحيفة"],
-            cpu: {
-                vendor: "Intel",
-                tier: "Core i7",
-                generation: "الجيل الحادي عشر (11th Gen)",
-                model: "Core i7-1165G7",
-                cores: 4,
-                threads: 8
-            },
+            cpu: { vendor: "Intel", tier: "Core i7", generation: "الجيل الحادي عشر (11th Gen)", model: "Core i7-1165G7", cores: 4, threads: 8 },
             ram: "32GB DDR4 RAM",
             storage: "512GB SSD",
             gpu: { name: "Intel Iris Xe Graphics", type: "مدمج" },
@@ -1231,20 +1209,13 @@
             tierBadge: "Ultraportable OLED",
             performanceTier: "خفيف ونحيف بشاشة OLED عالية",
             useCases: ["خفيفة ونحيفة", "شاشات ومواصفات عالية", "الدراسة والجامعة", "الاستخدام اليومي والمنزلي"],
-            cpu: {
-                vendor: "Intel",
-                tier: "Core Ultra",
-                generation: "Intel Core Ultra (Series 1)",
-                model: "Core Ultra 7 155H",
-                cores: 16,
-                threads: 22
-            },
+            cpu: { vendor: "Intel", tier: "Core Ultra", generation: "Intel Core Ultra (Series 1)", model: "Core Ultra 7 155H", cores: 16, threads: 22 },
             ram: "16GB / 32GB LPDDR5X",
             storage: "1TB M.2 NVMe PCIe 4.0 SSD",
             gpu: { name: "Intel Arc Graphics", type: "مدمج" },
             display: { size: "14 بوصة", resolution: "2880 x 1800 (3K)", refresh: "120Hz", panel: "OLED 16:10" },
             os: "Windows 11 Home / Pro",
-            extras: "الوزن: حوالي 1.28 كجم (2.82 lbs) | منافذ: 2x Thunderbolt 4، USB 3.2 Gen 1 Type-A، HDMI 2.1",
+            extras: "الوزن: حوالي 1.28 كجم | منافذ: 2x Thunderbolt 4، USB 3.2 Gen 1 Type-A، HDMI 2.1",
             highlights: ["شاشة 14 بوصة 3K OLED بمعدل تحديث 120Hz", "معالج Core Ultra 7 155H بـ 16 نواة و22 خيطاً"],
             image: "",
             inquiryOnly: true,
@@ -1259,21 +1230,14 @@
             tierBadge: "Gaming",
             performanceTier: "ألعاب وأداء رسومي مرتفع",
             useCases: ["Gaming", "التصميم والجرافيكس والمونتاج", "شاشات ومواصفات عالية"],
-            cpu: {
-                vendor: "Intel",
-                tier: "Core i7",
-                generation: "الجيل الثالث عشر (13th Gen)",
-                model: "Core i7-13700HX",
-                cores: null,
-                threads: 24
-            },
+            cpu: { vendor: "Intel", tier: "Core i7", generation: "الجيل الثالث عشر (13th Gen)", model: "Core i7-13700HX", cores: null, threads: 24 },
             ram: "16GB DDR5",
             storage: "1TB NVMe SSD",
             gpu: { name: "NVIDIA GeForce RTX 4060 Laptop GPU (8GB GDDR6)", type: "منفصل" },
             display: { size: "16 بوصة", resolution: "2560 x 1600 (QHD+)", refresh: "165Hz", panel: "16:10 High Refresh" },
             os: "Windows 11 Home",
             extras: "كرت رسومي منفصل RTX 4060 بسعة 8GB",
-            highlights: ["شاشة 16 بوصة QHD+ بمعدل 165Hz", "كرت شاشة منفصل RTX 4060 للألعاب والتصميم"],
+            highlights: ["شاشة 16 بوصة QHD+ بمعدل تحديث 165Hz", "كرت شاشة منفصل RTX 4060 للألعاب والتصميم"],
             image: "",
             inquiryOnly: true,
             sourceNote: "مواصفات Legion Pro 5 16IRX8 الموثقة"
@@ -1287,20 +1251,13 @@
             tierBadge: "Workstation",
             performanceTier: "محطة عمل هندسية ومهنية",
             useCases: ["Workstations", "الأعمال والشركات", "البرمجة وتطوير البرمجيات"],
-            cpu: {
-                vendor: "Intel",
-                tier: "Core i7",
-                generation: "الجيل الثالث عشر (13th Gen)",
-                model: "Core i7-1360P",
-                cores: 12,
-                threads: 16
-            },
+            cpu: { vendor: "Intel", tier: "Core i7", generation: "الجيل الثالث عشر (13th Gen)", model: "Core i7-1360P", cores: 12, threads: 16 },
             ram: "32GB DDR5 RAM",
             storage: "2TB M.2 NVMe SSD",
             gpu: { name: "RTX A500 Mobile (4GB) / حسب التكوين", type: "منفصل" },
             display: { size: "15.6 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "غير محدد", panel: "IPS مضاد للتوهج" },
             os: "Windows",
-            extras: "الوزن: حوالي 1.61 كجم (3.55 lbs) في التكوين القياسي",
+            extras: "الوزن: حوالي 1.61 كجم في التكوين القياسي",
             highlights: ["معالج 12 نواة و16 خيطاً مع ذاكرة 32GB DDR5", "سعة تخزين 2TB NVMe SSD"],
             image: "",
             inquiryOnly: true,
@@ -1315,14 +1272,7 @@
             tierBadge: "Business",
             performanceTier: "أعمال وتنقل يومي",
             useCases: ["الأعمال والشركات", "خفيفة ونحيفة", "الدراسة والجامعة"],
-            cpu: {
-                vendor: "Intel",
-                tier: "Core Ultra",
-                generation: "Intel Core Ultra (Series 1)",
-                model: "Core Ultra 5 135H",
-                cores: 14,
-                threads: 18
-            },
+            cpu: { vendor: "Intel", tier: "Core Ultra", generation: "Intel Core Ultra (Series 1)", model: "Core Ultra 5 135H", cores: 14, threads: 18 },
             ram: "16GB LPDDR5x",
             storage: "256GB SSD",
             gpu: { name: "Intel Arc Graphics (8 Xe-cores)", type: "مدمج" },
@@ -1343,24 +1293,521 @@
             tierBadge: "Apple M-Series",
             performanceTier: "خفيف ونحيف وبطارية طويلة",
             useCases: ["خفيفة ونحيفة", "الدراسة والجامعة", "الاستخدام اليومي والمنزلي", "البرمجة وتطوير البرمجيات"],
-            cpu: {
-                vendor: "Apple",
-                tier: "Apple M-Series",
-                generation: "شريحة Apple M3 (2024)",
-                model: "Apple M3 (8-core CPU)",
-                cores: 8,
-                threads: null
-            },
+            cpu: { vendor: "Apple", tier: "Apple M-Series", generation: "شريحة Apple M3 (2024)", model: "Apple M3 (8-core CPU)", cores: 8, threads: null },
             ram: "16GB Unified Memory (قابل للتكوين حتى 24GB)",
             storage: "256GB / 512GB SSD",
             gpu: { name: "Apple M3 GPU (8-core أو 10-core حسب النسخة)", type: "مدمج" },
             display: { size: "13.6 بوصة", resolution: "2560 x 1664 (Liquid Retina)", refresh: "60Hz", panel: "IPS LED مع True Tone وP3" },
             os: "macOS",
-            extras: "الوزن: 1.24 كجم (2.7 lbs) | بطارية 52.6Wh | منافذ: MagSafe 3، 2x Thunderbolt / USB 4، سماعة 3.5mm",
+            extras: "الوزن: 1.24 كجم | بطارية 52.6Wh | منافذ: MagSafe 3، 2x Thunderbolt / USB 4، سماعة 3.5mm",
             highlights: ["تصميم ألمنيوم نحيف بوزن 1.24 كجم", "شاشة Liquid Retina بسطوع 500 nits ودعم P3"],
             image: "",
             inquiryOnly: true,
             sourceNote: "Apple Support مواصفات MacBook Air 13 M3"
+        },
+        {
+            id: "lp-acer-aspire5-a515-57",
+            releaseOrder: 9,
+            brand: "Acer",
+            series: "Aspire",
+            model: "Aspire 5 (A515-57)",
+            tierBadge: "Everyday",
+            performanceTier: "استخدام يومي ودراسة ومهام مكتبية",
+            useCases: ["الاستخدام اليومي والمنزلي", "الدراسة والجامعة", "الأعمال والشركات"],
+            cpu: { vendor: "Intel", tier: "Core i5", generation: "الجيل الثاني عشر (12th Gen)", model: "Core i5-1235U", cores: 10, threads: 12 },
+            ram: "8GB / 16GB DDR4",
+            storage: "512GB NVMe SSD",
+            gpu: { name: "Intel Iris Xe Graphics", type: "مدمج" },
+            display: { size: "15.6 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "60Hz", panel: "IPS" },
+            os: "Windows 11 Home",
+            extras: "شاشة 15.6 بوصة مناسبة للمستندات والتصفح والدراسة",
+            highlights: ["معالج 10 أنوية و12 خيطاً للاستخدام اليومي السلس", "تخزين 512GB NVMe SSD"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات Acer Aspire 5 A515-57 الموثقة"
+        },
+        {
+            id: "lp-acer-nitro5-an515-58",
+            releaseOrder: 10,
+            brand: "Acer",
+            series: "Nitro",
+            model: "Nitro 5 (AN515-58)",
+            tierBadge: "Gaming",
+            performanceTier: "ألعاب وتصميم رسومي",
+            useCases: ["Gaming", "التصميم والجرافيكس والمونتاج"],
+            cpu: { vendor: "Intel", tier: "Core i7", generation: "الجيل الثاني عشر (12th Gen)", model: "Core i7-12700H", cores: 14, threads: 20 },
+            ram: "16GB DDR4 / DDR5 (حسب التكوين)",
+            storage: "512GB / 1TB NVMe SSD",
+            gpu: { name: "NVIDIA GeForce RTX 3050 / RTX 3060 Laptop GPU", type: "منفصل" },
+            display: { size: "15.6 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "144Hz", panel: "IPS High Refresh" },
+            os: "Windows 11 Home",
+            extras: "معدل تحديث 144Hz وكرت رسومي منفصل من سلسلة RTX",
+            highlights: ["معالج Core i7-12700H بـ 14 نواة و20 خيطاً", "شاشة 144Hz مناسبة للألعاب السريعة"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات Acer Nitro 5 AN515-58 الموثقة"
+        },
+        {
+            id: "lp-msi-katana15-b13v",
+            releaseOrder: 11,
+            brand: "MSI",
+            series: "Gaming",
+            model: "Katana 15 B13V",
+            tierBadge: "Gaming",
+            performanceTier: "ألعاب وأداء رسومي",
+            useCases: ["Gaming", "التصميم والجرافيكس والمونتاج"],
+            cpu: { vendor: "Intel", tier: "Core i7", generation: "الجيل الثالث عشر (13th Gen)", model: "Core i7-13620H", cores: 10, threads: 16 },
+            ram: "16GB DDR5",
+            storage: "512GB / 1TB NVMe PCIe SSD",
+            gpu: { name: "NVIDIA GeForce RTX 4060 / RTX 4070 Laptop GPU", type: "منفصل" },
+            display: { size: "15.6 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "144Hz", panel: "IPS-Level" },
+            os: "Windows 11 Home",
+            extras: "ذاكرة DDR5 ومعالج من فئة H للألعاب والمهام الثقيلة",
+            highlights: ["معالج Core i7-13620H مع ذاكرة DDR5", "كرت شاشة منفصل من سلسلة RTX 40"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات MSI Katana 15 B13V الموثقة"
+        },
+        {
+            id: "lp-msi-prestige14-evo",
+            releaseOrder: 12,
+            brand: "MSI",
+            series: "Business",
+            model: "Prestige 14 Evo",
+            tierBadge: "Business",
+            performanceTier: "أعمال وتنقل خفيف",
+            useCases: ["الأعمال والشركات", "خفيفة ونحيفة", "الدراسة والجامعة"],
+            cpu: { vendor: "Intel", tier: "Core i7", generation: "الجيل الثاني عشر / الثالث عشر (حسب النسخة)", model: "Core i7-1280P", cores: 14, threads: 20 },
+            ram: "16GB LPDDR5",
+            storage: "512GB / 1TB NVMe SSD",
+            gpu: { name: "Intel Iris Xe Graphics", type: "مدمج" },
+            display: { size: "14 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "60Hz", panel: "IPS" },
+            os: "Windows 11 Pro",
+            extras: "الوزن: حوالي 1.49 كجم | دعم Thunderbolt 4",
+            highlights: ["تصميم خفيف للأعمال والتنقل", "معالج 14 نواة و20 خيطاً"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات MSI Prestige 14 Evo الموثقة"
+        },
+        {
+            id: "lp-gigabyte-g5-kf",
+            releaseOrder: 13,
+            brand: "Gigabyte",
+            series: "G5",
+            model: "G5 KF",
+            tierBadge: "Gaming",
+            performanceTier: "ألعاب بمعدل تحديث مرتفع",
+            useCases: ["Gaming", "البرمجة وتطوير البرمجيات"],
+            cpu: { vendor: "Intel", tier: "Core i5", generation: "الجيل الثاني عشر (12th Gen)", model: "Core i5-12500H", cores: 12, threads: 16 },
+            ram: "16GB DDR4",
+            storage: "512GB NVMe SSD",
+            gpu: { name: "NVIDIA GeForce RTX 4060 Laptop GPU (8GB)", type: "منفصل" },
+            display: { size: "15.6 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "144Hz", panel: "IPS-level" },
+            os: "Windows 11 Home",
+            extras: "كرت RTX 4060 بسعة 8GB مع معالج 12 نواة و16 خيطاً",
+            highlights: ["معالج Core i5-12500H بـ 12 نواة", "كرت RTX 4060 مع شاشة 144Hz"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات Gigabyte G5 KF الموثقة"
+        },
+        {
+            id: "lp-gigabyte-aero16-oled",
+            releaseOrder: 14,
+            brand: "Gigabyte",
+            series: "Aero",
+            model: "Aero 16 OLED",
+            tierBadge: "Creator OLED",
+            performanceTier: "تصميم ومونتاج وشاشة OLED عالية",
+            useCases: ["التصميم والجرافيكس والمونتاج", "شاشات ومواصفات عالية", "Workstations"],
+            cpu: { vendor: "Intel", tier: "Core i7", generation: "الجيل الثاني عشر / الثالث عشر (حسب النسخة)", model: "Core i7-12700H", cores: 14, threads: 20 },
+            ram: "16GB / 32GB DDR5",
+            storage: "1TB NVMe SSD",
+            gpu: { name: "NVIDIA GeForce RTX 3070 Ti Laptop GPU", type: "منفصل" },
+            display: { size: "16 بوصة", resolution: "3840 x 2400 (4K UHD+)", refresh: "60Hz", panel: "OLED 16:10" },
+            os: "Windows 11 Pro",
+            extras: "شاشة 16 بوصة 4K OLED بمعايرة ألوان لصناع المحتوى",
+            highlights: ["شاشة 4K OLED عالية الدقة للمونتاج والتصميم", "كرت رسومي منفصل من سلسلة RTX"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات Gigabyte Aero 16 OLED الموثقة"
+        },
+        {
+            id: "lp-razer-blade15-2023",
+            releaseOrder: 15,
+            brand: "Razer",
+            series: "Blade",
+            model: "Blade 15 (2023)",
+            tierBadge: "Gaming",
+            performanceTier: "ألعاب وأداء رسومي عالٍ",
+            useCases: ["Gaming", "التصميم والجرافيكس والمونتاج", "شاشات ومواصفات عالية"],
+            cpu: { vendor: "Intel", tier: "Core i7", generation: "الجيل الثالث عشر (13th Gen)", model: "Core i7-13800H", cores: 14, threads: 20 },
+            ram: "16GB DDR5",
+            storage: "1TB NVMe SSD",
+            gpu: { name: "NVIDIA GeForce RTX 4070 Laptop GPU (8GB)", type: "منفصل" },
+            display: { size: "15.6 بوصة", resolution: "2560 x 1440 (QHD)", refresh: "240Hz", panel: "IPS High Refresh" },
+            os: "Windows 11 Home",
+            extras: "شاشة QHD بمعدل تحديث 240Hz وكرت RTX 4070",
+            highlights: ["شاشة QHD بمعدل تحديث 240Hz", "معالج Core i7-13800H مع كرت RTX 4070"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات Razer Blade 15 2023 الموثقة"
+        },
+        {
+            id: "lp-huawei-matebook-d15-2022",
+            releaseOrder: 16,
+            brand: "Huawei",
+            series: "MateBook",
+            model: "MateBook D 15 (2022)",
+            tierBadge: "Everyday",
+            performanceTier: "استخدام يومي ودراسة ومهام مكتبية",
+            useCases: ["الاستخدام اليومي والمنزلي", "الدراسة والجامعة", "الأعمال والشركات"],
+            cpu: { vendor: "Intel", tier: "Core i5", generation: "الجيل الحادي عشر (11th Gen)", model: "Core i5-1155G7", cores: 4, threads: 8 },
+            ram: "8GB / 16GB DDR4",
+            storage: "512GB NVMe SSD",
+            gpu: { name: "Intel Iris Xe Graphics", type: "مدمج" },
+            display: { size: "15.6 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "60Hz", panel: "IPS Anti-Glare" },
+            os: "Windows 11 Home",
+            extras: "تصميم معدني نحيف وشاشة بحواف ضيقة",
+            highlights: ["شاشة 15.6 بوصة FHD مضادة للتوهج", "مناسب للدراسة والعمل المكتبي اليومي"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات Huawei MateBook D 15 2022 الموثقة"
+        },
+        {
+            id: "lp-samsung-galaxy-book4-pro-14",
+            releaseOrder: 17,
+            brand: "Samsung",
+            series: "Galaxy Book",
+            model: "Galaxy Book4 Pro (14\")",
+            tierBadge: "Ultraportable OLED",
+            performanceTier: "خفيف ونحيف بشاشة AMOLED عالية",
+            useCases: ["خفيفة ونحيفة", "شاشات ومواصفات عالية", "الأعمال والشركات", "البرمجة وتطوير البرمجيات"],
+            cpu: { vendor: "Intel", tier: "Core Ultra", generation: "Intel Core Ultra (Series 1)", model: "Core Ultra 7 155H", cores: 16, threads: 22 },
+            ram: "16GB LPDDR5X",
+            storage: "512GB / 1TB NVMe SSD",
+            gpu: { name: "Intel Arc Graphics", type: "مدمج" },
+            display: { size: "14 بوصة", resolution: "2880 x 1800 (3K)", refresh: "120Hz", panel: "Dynamic AMOLED 2X Touch" },
+            os: "Windows 11 Home / Pro",
+            extras: "شاشة لمس AMOLED بمعدل تحديث 120Hz ومعالج Core Ultra 7 155H",
+            highlights: ["شاشة Dynamic AMOLED 2X بدقة 3K و120Hz", "معالج 16 نواة و22 خيطاً"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات Samsung Galaxy Book4 Pro 14 الموثقة"
+        },
+        {
+            id: "lp-lg-gram16-16z90r",
+            releaseOrder: 18,
+            brand: "LG",
+            series: "Gram",
+            model: "Gram 16 (16Z90R)",
+            tierBadge: "Ultraportable",
+            performanceTier: "شاشة كبيرة وخفيف الوزن للتنقل",
+            useCases: ["خفيفة ونحيفة", "شاشات ومواصفات عالية", "الأعمال والشركات", "الدراسة والجامعة"],
+            cpu: { vendor: "Intel", tier: "Core i7", generation: "الجيل الثالث عشر (13th Gen)", model: "Core i7-1360P", cores: 12, threads: 16 },
+            ram: "16GB LPDDR5",
+            storage: "512GB / 1TB NVMe SSD",
+            gpu: { name: "Intel Iris Xe Graphics", type: "مدمج" },
+            display: { size: "16 بوصة", resolution: "2560 x 1600 (WQXGA)", refresh: "غير محدد في النسخة القياسية", panel: "IPS Anti-Glare 16:10" },
+            os: "Windows 11 Home",
+            extras: "شاشة واسعة 16 بوصة بنسبة 16:10 مع وزن خفيف للغاية",
+            highlights: ["شاشة 16 بوصة WQXGA بنسبة 16:10", "معالج 12 نواة و16 خيطاً مع وزن خفيف"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات LG Gram 16 16Z90R الموثقة"
+        },
+        {
+            id: "lp-dell-xps13-9340-u7",
+            releaseOrder: 19,
+            brand: "Dell",
+            series: "XPS",
+            model: "XPS 13 (9340)",
+            tierBadge: "Ultraportable",
+            performanceTier: "خفيف ونحيف وأداء عالٍ",
+            useCases: ["خفيفة ونحيفة", "الأعمال والشركات", "الدراسة والجامعة", "شاشات ومواصفات عالية"],
+            cpu: { vendor: "Intel", tier: "Core Ultra", generation: "Intel Core Ultra (Series 1)", model: "Core Ultra 7 155H", cores: 16, threads: 22 },
+            ram: "16GB LPDDR5X",
+            storage: "512GB / 1TB M.2 NVMe SSD",
+            gpu: { name: "Intel Arc Graphics", type: "مدمج" },
+            display: { size: "13.4 بوصة", resolution: "1920 x 1200 (FHD+)", refresh: "120Hz", panel: "InfinityEdge 16:10" },
+            os: "Windows 11 Home / Pro",
+            extras: "الوزن: حوالي 1.19 كجم | منفذا Thunderbolt 4 (USB Type-C)",
+            highlights: ["وزن خفيف جداً حوالي 1.19 كجم", "شاشة InfinityEdge بمعدل 120Hz"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات Dell XPS 13 9340 الموثقة"
+        },
+        {
+            id: "lp-dell-inspiron15-3520-i5",
+            releaseOrder: 20,
+            brand: "Dell",
+            series: "Inspiron",
+            model: "Inspiron 15 (3520)",
+            tierBadge: "Everyday",
+            performanceTier: "استخدام يومي ودراسة",
+            useCases: ["الاستخدام اليومي والمنزلي", "الدراسة والجامعة"],
+            cpu: { vendor: "Intel", tier: "Core i5", generation: "الجيل الثاني عشر (12th Gen)", model: "Core i5-1235U", cores: 10, threads: 12 },
+            ram: "8GB / 16GB DDR4",
+            storage: "512GB M.2 PCIe NVMe SSD",
+            gpu: { name: "Intel UHD Graphics", type: "مدمج" },
+            display: { size: "15.6 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "120Hz", panel: "WVA / IPS 15.6" },
+            os: "Windows 11 Home",
+            extras: "شاشة 15.6 بوصة FHD مع لوحة أرقام مستقلة",
+            highlights: ["مناسب للدراسة والاستخدام المنزلي اليومي", "تخزين SSD سريع بسعة 512GB"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات Dell Inspiron 15 3520 الموثقة"
+        },
+        {
+            id: "lp-dell-vostro15-3520-i5",
+            releaseOrder: 21,
+            brand: "Dell",
+            series: "Vostro",
+            model: "Vostro 15 (3520)",
+            tierBadge: "Business",
+            performanceTier: "أعمال مكتبية ومهام يومية",
+            useCases: ["الأعمال والشركات", "الاستخدام اليومي والمنزلي"],
+            cpu: { vendor: "Intel", tier: "Core i5", generation: "الجيل الثاني عشر (12th Gen)", model: "Core i5-1235U", cores: 10, threads: 12 },
+            ram: "16GB DDR4",
+            storage: "512GB M.2 NVMe SSD",
+            gpu: { name: "Intel UHD Graphics", type: "مدمج" },
+            display: { size: "15.6 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "120Hz", panel: "IPS Anti-Glare" },
+            os: "Windows 11 Pro",
+            extras: "منافذ USB-A وHDMI وSD Card للمكاتب",
+            highlights: ["مخصص للمهام المكتبية والشركات", "ذاكرة 16GB وتخزين 512GB SSD"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات Dell Vostro 15 3520 الموثقة"
+        },
+        {
+            id: "lp-hp-probook450-g9-i5",
+            releaseOrder: 22,
+            brand: "HP",
+            series: "ProBook",
+            model: "ProBook 450 G9",
+            tierBadge: "Business",
+            performanceTier: "أعمال وبرمجة ومهام مكتبية",
+            useCases: ["الأعمال والشركات", "البرمجة وتطوير البرمجيات", "الدراسة والجامعة"],
+            cpu: { vendor: "Intel", tier: "Core i5", generation: "الجيل الثاني عشر (12th Gen)", model: "Core i5-1235U", cores: 10, threads: 12 },
+            ram: "16GB DDR4",
+            storage: "512GB PCIe NVMe SSD",
+            gpu: { name: "Intel Iris Xe Graphics", type: "مدمج" },
+            display: { size: "15.6 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "60Hz", panel: "IPS Anti-Glare" },
+            os: "Windows 11 Pro",
+            extras: "منافذ USB Type-C، 3x USB Type-A، HDMI، RJ-45",
+            highlights: ["تنوع منافذ الاتصال للأعمال والشبكات", "معالج الجيل الثاني عشر بـ 10 أنوية"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات HP ProBook 450 G9 الموثقة"
+        },
+        {
+            id: "lp-hp-pavilion15-eg2-i5",
+            releaseOrder: 23,
+            brand: "HP",
+            series: "Pavilion",
+            model: "Pavilion 15 (eg2000)",
+            tierBadge: "Everyday",
+            performanceTier: "استخدام يومي ودراسة وترفيه",
+            useCases: ["الاستخدام اليومي والمنزلي", "الدراسة والجامعة"],
+            cpu: { vendor: "Intel", tier: "Core i5", generation: "الجيل الثاني عشر (12th Gen)", model: "Core i5-1235U", cores: 10, threads: 12 },
+            ram: "16GB DDR4",
+            storage: "512GB PCIe NVMe SSD",
+            gpu: { name: "Intel Iris Xe Graphics", type: "مدمج" },
+            display: { size: "15.6 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "60Hz", panel: "IPS Micro-Edge" },
+            os: "Windows 11 Home",
+            extras: "تصميم عصري خفيف نسبياً للاستخدام اليومي",
+            highlights: ["شاشة بحواف نحيفة للاستخدام اليومي", "ذاكرة 16GB لتعدد المهام السلس"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات HP Pavilion 15 eg2 الموثقة"
+        },
+        {
+            id: "lp-hp-zbook-firefly14-g10-i7",
+            releaseOrder: 24,
+            brand: "HP",
+            series: "ZBook",
+            model: "ZBook Firefly 14 G10",
+            tierBadge: "Workstation",
+            performanceTier: "محطة عمل محمولة خفيفة",
+            useCases: ["Workstations", "الأعمال والشركات", "خفيفة ونحيفة", "البرمجة وتطوير البرمجيات"],
+            cpu: { vendor: "Intel", tier: "Core i7", generation: "الجيل الثالث عشر (13th Gen)", model: "Core i7-1355U", cores: 10, threads: 12 },
+            ram: "16GB / 32GB DDR5",
+            storage: "512GB / 1TB NVMe SSD",
+            gpu: { name: "NVIDIA RTX A500 Laptop GPU (4GB) / حسب التكوين", type: "منفصل" },
+            display: { size: "14 بوصة", resolution: "1920 x 1200 (WUXGA)", refresh: "60Hz", panel: "IPS 16:10" },
+            os: "Windows 11 Pro",
+            extras: "محطة عمل محمولة بوزن خفيف ومنافذ Thunderbolt 4",
+            highlights: ["محطة عمل خفيفة بحجم 14 بوصة", "ذاكرة DDR5 ومعالج الجيل الثالث عشر"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات HP ZBook Firefly 14 G10 الموثقة"
+        },
+        {
+            id: "lp-hp-victus16-r0-i7",
+            releaseOrder: 25,
+            brand: "HP",
+            series: "Victus",
+            model: "Victus 16 (r0000)",
+            tierBadge: "Gaming",
+            performanceTier: "ألعاب وتصميم رسومي",
+            useCases: ["Gaming", "التصميم والجرافيكس والمونتاج"],
+            cpu: { vendor: "Intel", tier: "Core i7", generation: "الجيل الثالث عشر (13th Gen)", model: "Core i7-13700H", cores: 14, threads: 20 },
+            ram: "16GB DDR5",
+            storage: "512GB / 1TB NVMe SSD",
+            gpu: { name: "NVIDIA GeForce RTX 4060 Laptop GPU (8GB)", type: "منفصل" },
+            display: { size: "16.1 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "144Hz", panel: "IPS 144Hz" },
+            os: "Windows 11 Home",
+            extras: "شاشة 16.1 بوصة بمعدل تحديث 144Hz",
+            highlights: ["معالج Core i7-13700H بـ 14 نواة و20 خيطاً", "كرت RTX 4060 للألعاب والمونتاج"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات HP Victus 16 r0 الموثقة"
+        },
+        {
+            id: "lp-asus-rog-strix-g16-g614-i7",
+            releaseOrder: 26,
+            brand: "ASUS",
+            series: "ROG",
+            model: "ROG Strix G16 (G614)",
+            tierBadge: "Gaming",
+            performanceTier: "ألعاب عالية ومهام رسومية ثقيلة",
+            useCases: ["Gaming", "التصميم والجرافيكس والمونتاج", "شاشات ومواصفات عالية"],
+            cpu: { vendor: "Intel", tier: "Core i7", generation: "الجيل الثالث عشر (13th Gen)", model: "Core i7-13650HX", cores: 14, threads: 20 },
+            ram: "16GB DDR5-4800",
+            storage: "1TB PCIe 4.0 NVMe SSD",
+            gpu: { name: "NVIDIA GeForce RTX 4060 Laptop GPU (8GB)", type: "منفصل" },
+            display: { size: "16 بوصة", resolution: "1920 x 1200 (FHD+)", refresh: "165Hz", panel: "ROG Nebula / IPS 16:10" },
+            os: "Windows 11 Home",
+            extras: "معالج سلسلة HX مع كرت RTX 4060 وشاشة 165Hz",
+            highlights: ["معالج i7-13650HX مع 14 نواة و20 خيطاً", "شاشة 16 بوصة 165Hz وتخزين 1TB SSD"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات ASUS ROG Strix G16 G614 الموثقة"
+        },
+        {
+            id: "lp-asus-tuf-f15-fx507-i7",
+            releaseOrder: 27,
+            brand: "ASUS",
+            series: "TUF Gaming",
+            model: "TUF Gaming F15 (FX507)",
+            tierBadge: "Gaming",
+            performanceTier: "ألعاب ومتانة عالية",
+            useCases: ["Gaming", "التصميم والجرافيكس والمونتاج"],
+            cpu: { vendor: "Intel", tier: "Core i7", generation: "الجيل الثاني عشر / الثالث عشر (حسب النسخة)", model: "Core i7-12700H", cores: 14, threads: 20 },
+            ram: "16GB DDR4",
+            storage: "512GB / 1TB PCIe NVMe SSD",
+            gpu: { name: "NVIDIA GeForce RTX 4060 Laptop GPU (8GB)", type: "منفصل" },
+            display: { size: "15.6 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "144Hz", panel: "IPS 144Hz" },
+            os: "Windows 11 Home",
+            extras: "شاشة 144Hz مع كرت RTX 4060",
+            highlights: ["أداء قوي للألعاب والمهام الرسومية", "معالج 14 نواة و20 خيطاً"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات ASUS TUF Gaming F15 FX507 الموثقة"
+        },
+        {
+            id: "lp-asus-vivobook15-x1502-i5",
+            releaseOrder: 28,
+            brand: "ASUS",
+            series: "VivoBook",
+            model: "VivoBook 15 (X1502)",
+            tierBadge: "Everyday",
+            performanceTier: "استخدام يومي ودراسة",
+            useCases: ["الاستخدام اليومي والمنزلي", "الدراسة والجامعة"],
+            cpu: { vendor: "Intel", tier: "Core i5", generation: "الجيل الثاني عشر (12th Gen)", model: "Core i5-1235U", cores: 10, threads: 12 },
+            ram: "8GB / 16GB DDR4",
+            storage: "512GB NVMe SSD",
+            gpu: { name: "Intel Iris Xe Graphics", type: "مدمج" },
+            display: { size: "15.6 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "60Hz", panel: "IPS Anti-Glare" },
+            os: "Windows 11 Home",
+            extras: "تصميم عملي للاستخدام اليومي والطلاب",
+            highlights: ["مناسب للدراسة والمهام اليومية", "تخزين 512GB SSD"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات ASUS VivoBook 15 X1502 الموثقة"
+        },
+        {
+            id: "lp-lenovo-ideapad-slim3-15-r7",
+            releaseOrder: 29,
+            brand: "Lenovo",
+            series: "IdeaPad",
+            model: "IdeaPad Slim 3 (15\", Ryzen 7)",
+            tierBadge: "Everyday",
+            performanceTier: "استخدام يومي ودراسة بمعالج AMD",
+            useCases: ["الاستخدام اليومي والمنزلي", "الدراسة والجامعة", "البرمجة وتطوير البرمجيات"],
+            cpu: { vendor: "AMD", tier: "Ryzen 7", generation: "AMD Ryzen 7000 Series", model: "Ryzen 7 7730U", cores: 8, threads: 16 },
+            ram: "16GB DDR4",
+            storage: "512GB M.2 NVMe SSD",
+            gpu: { name: "AMD Radeon Graphics", type: "مدمج" },
+            display: { size: "15.6 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "60Hz", panel: "IPS Anti-Glare" },
+            os: "Windows 11 Home",
+            extras: "معالج 8 أنوية و16 خيطاً من فئة Ryzen 7",
+            highlights: ["أداء متعدد الخيوط بـ 16 خيطاً", "مناسب للدراسة والبرمجة اليومية"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات Lenovo IdeaPad Slim 3 7730U الموثقة"
+        },
+        {
+            id: "lp-lenovo-yoga7-14-r7",
+            releaseOrder: 30,
+            brand: "Lenovo",
+            series: "Yoga",
+            model: "Yoga 7 (14\", AMD)",
+            tierBadge: "Ultraportable",
+            performanceTier: "خفيف ومرن للدراسة والتنقل",
+            useCases: ["خفيفة ونحيفة", "الدراسة والجامعة", "الاستخدام اليومي والمنزلي"],
+            cpu: { vendor: "AMD", tier: "Ryzen 7", generation: "AMD Ryzen 7000 Series", model: "Ryzen 7 7735U", cores: 8, threads: 16 },
+            ram: "16GB LPDDR5",
+            storage: "512GB / 1TB NVMe SSD",
+            gpu: { name: "AMD Radeon 680M Graphics", type: "مدمج" },
+            display: { size: "14 بوصة", resolution: "1920 x 1200 (WUXGA)", refresh: "60Hz", panel: "IPS Touch 16:10" },
+            os: "Windows 11 Home",
+            extras: "شاشة لمس 14 بوصة بنسبة 16:10 وذاكرة LPDDR5",
+            highlights: ["شاشة لمس 16:10 بدقة WUXGA", "معالج رسومي مدمج Radeon 680M"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات Lenovo Yoga 7 14 7735U الموثقة"
+        },
+        {
+            id: "lp-lenovo-loq-15irh8-i5",
+            releaseOrder: 31,
+            brand: "Lenovo",
+            series: "LOQ",
+            model: "LOQ 15IRH8",
+            tierBadge: "Gaming",
+            performanceTier: "ألعاب بمعدل تحديث 144Hz",
+            useCases: ["Gaming", "التصميم والجرافيكس والمونتاج"],
+            cpu: { vendor: "Intel", tier: "Core i5", generation: "الجيل الثاني عشر (12th Gen)", model: "Core i5-12450H", cores: 8, threads: 12 },
+            ram: "16GB DDR5-4800",
+            storage: "512GB NVMe SSD",
+            gpu: { name: "NVIDIA GeForce RTX 4050 Laptop GPU (6GB)", type: "منفصل" },
+            display: { size: "15.6 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "144Hz", panel: "IPS 144Hz" },
+            os: "Windows 11 Home",
+            extras: "ذاكرة DDR5 وكرت RTX 4050 بسعة 6GB",
+            highlights: ["ذاكرة DDR5 وشاشة 144Hz", "كرت شاشة منفصل RTX 4050"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات Lenovo LOQ 15IRH8 الموثقة"
+        },
+        {
+            id: "lp-macbook-pro-14-m3pro",
+            releaseOrder: 32,
+            brand: "Apple",
+            series: "MacBook Pro",
+            model: "MacBook Pro (14-inch, Nov 2023, M3 Pro)",
+            tierBadge: "Apple M-Series",
+            performanceTier: "احترافي عالٍ للبرمجة والتصميم والمونتاج",
+            useCases: ["البرمجة وتطوير البرمجيات", "التصميم والجرافيكس والمونتاج", "شاشات ومواصفات عالية"],
+            cpu: { vendor: "Apple", tier: "Apple M-Series", generation: "شريحة Apple M3 Pro", model: "Apple M3 Pro (11-core أو 12-core CPU حسب النسخة)", cores: 11, threads: null },
+            ram: "18GB Unified Memory",
+            storage: "512GB / 1TB SSD",
+            gpu: { name: "Apple M3 Pro GPU (14-core أو 18-core حسب النسخة)", type: "مدمج" },
+            display: { size: "14.2 بوصة", resolution: "3024 x 1964 (Liquid Retina XDR)", refresh: "حتى 120Hz (ProMotion)", panel: "Liquid Retina XDR مع ProMotion" },
+            os: "macOS",
+            extras: "منافذ: 3x Thunderbolt 4، HDMI، SDXC، MagSafe 3، سماعة 3.5mm",
+            highlights: ["شاشة Liquid Retina XDR مع ProMotion حتى 120Hz", "ذاكرة موحدة 18GB ومنافذ Thunderbolt 4 وHDMI وSDXC"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "Apple Support مواصفات MacBook Pro 14 M3 Pro"
         }
     ];
 
@@ -1760,8 +2207,8 @@
     let currentCat = "الكل";
     let currentSpotlight = "all";
     let favOnly = false;
-    let laptopPageSize = 4;
-    let laptopVisibleCount = 4;
+    let laptopPageSize = 8;
+    let laptopVisibleCount = 8;
     let compareIds = [];
     let favIds = [];
     let cart = [];
@@ -1886,7 +2333,7 @@
             if (currentSpotlight === "workstation" && !lp.useCases.includes("Workstations")) return false;
             if (currentSpotlight === "study-dev" && !lp.useCases.includes("الدراسة والجامعة") && !lp.useCases.includes("البرمجة وتطوير البرمجيات")) return false;
             if (currentSpotlight === "apple" && lp.brand !== "Apple") return false;
-            if (currentSpotlight === "latest" && lp.releaseOrder < 4) return false;
+            if (currentSpotlight === "latest" && lp.releaseOrder < 18) return false;
 
             if (q) {
                 const hay = `${lp.brand} ${lp.series} ${lp.model} ${lp.cpu.model} ${lp.cpu.tier} ${lp.cpu.generation} ${lp.ram} ${lp.storage} ${lp.gpu.name} ${lp.useCases.join(" ")}`.toLowerCase();
@@ -1952,8 +2399,8 @@
             const threadsInfo = lp.cpu.threads ? `${lp.cpu.threads} خيط` : "غير مذكور";
 
             const mediaBlock = lp.image
-                ? `<div class="laptop-media-placeholder"><img src="${lp.image}" alt="${lp.brand} ${lp.model}" loading="lazy"></div>`
-                : `<div class="laptop-media-placeholder">صورة الموديل قيد التجهيز بهوية المدار — <strong>${lp.brand} ${lp.model}</strong></div>`;
+                ? `<div class="laptop-media-box"><img src="${lp.image}" alt="${lp.brand} ${lp.model}" loading="lazy"></div>`
+                : `<div class="laptop-media-box"></div>`;
 
             grid.innerHTML += `
                 <article class="laptop-card">
@@ -2002,7 +2449,7 @@
 
         document.getElementById("detail-modal-title").innerText = `${lp.brand} ${lp.model}`;
         document.getElementById("detail-modal-body").innerHTML = `
-            <p style="color:var(--accent); font-weight:900; margin-bottom:10px;">السعر: تواصل للتسعير (كتالوج استفسار)</p>
+            <p style="color:var(--accent); font-weight:900; margin-bottom:10px;">السعر: تواصل للتسعير</p>
             <p style="font-size:0.85rem; margin-bottom:10px;"><strong>فئات الاستخدام:</strong> ${lp.useCases.join("، ")}</p>
             <table class="compare-table">
                 <tr><th>الشركة والسلسلة</th><td>${lp.brand} — ${lp.series} (${lp.model})</td></tr>
