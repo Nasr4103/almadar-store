@@ -115,7 +115,6 @@
             width: 100%;
         }
 
-        /* تنسيق الشعار المعتمد almadar-logo.png بحركة هادئة وواضحة */
         .brand-link {
             display: inline-flex;
             align-items: center;
@@ -181,19 +180,12 @@
         }
 
         @keyframes logoFloat {
-            0%, 100% {
-                transform: translateY(0px) scale(1);
-            }
-            50% {
-                transform: translateY(-1.5px) scale(1.02);
-            }
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-1.5px) scale(1.02); }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .brand-logo-card,
-            .brand-logo-img {
-                animation: none;
-            }
+            .brand-logo-card, .brand-logo-img { animation: none; }
         }
 
         .controls { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
@@ -331,6 +323,328 @@
         }
         .chargers-subfilters select:focus { border-color: var(--accent); }
 
+        /* قسم اللابتوبات المتكامل */
+        .laptops-section {
+            max-width: 1200px;
+            margin: 10px auto 30px;
+            padding: 0 15px;
+            display: none;
+        }
+        .laptops-section.active { display: block; }
+
+        .laptops-header-bar {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        .laptops-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .laptops-title-row h2 {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: var(--accent);
+        }
+        .laptops-meta-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .spotlight-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+            scrollbar-width: none;
+        }
+        .spotlight-pills::-webkit-scrollbar { display: none; }
+        .spotlight-pill {
+            background: var(--surface-2);
+            color: var(--text);
+            border: 1px solid var(--border);
+            padding: 6px 14px;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .spotlight-pill.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .laptops-layout {
+            display: grid;
+            grid-template-columns: 270px 1fr;
+            gap: 16px;
+            align-items: start;
+        }
+        @media (max-width: 860px) {
+            .laptops-layout { grid-template-columns: 1fr; }
+        }
+
+        .mobile-filter-toggle {
+            display: none;
+            width: 100%;
+            background: var(--surface-2);
+            color: var(--text);
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        @media (max-width: 860px) {
+            .mobile-filter-toggle { display: block; }
+            .laptops-sidebar { display: none; }
+            .laptops-sidebar.open { display: block; }
+        }
+
+        .laptops-sidebar {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 14px;
+        }
+        .filter-group { margin-bottom: 14px; }
+        .filter-group label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            color: var(--accent);
+        }
+        .filter-group select, .filter-group input {
+            width: 100%;
+            background: var(--surface-2);
+            color: var(--text);
+            border: 1px solid var(--border);
+            padding: 8px 10px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            outline: none;
+        }
+        .reset-filters-btn {
+            width: 100%;
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .reset-filters-btn:hover { color: var(--text); border-color: var(--accent); }
+
+        .laptops-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 14px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            border-radius: 12px;
+        }
+        .laptops-toolbar select {
+            background: var(--surface-2);
+            color: var(--text);
+            border: 1px solid var(--border);
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .laptop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 14px;
+        }
+        .laptop-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .laptop-card-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .badge-tier {
+            background: rgba(14, 165, 233, 0.16);
+            color: var(--primary);
+            border: 1px solid rgba(14, 165, 233, 0.4);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 800;
+        }
+        .badge-inquiry {
+            background: rgba(245, 158, 11, 0.16);
+            color: var(--accent);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 800;
+        }
+        .laptop-media-placeholder {
+            background: var(--surface-2);
+            border: 1px dashed var(--border);
+            border-radius: 10px;
+            padding: 12px;
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+        .laptop-media-placeholder img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+        }
+        .laptop-specs-brief {
+            list-style: none;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            border-top: 1px solid var(--border);
+            padding-top: 8px;
+        }
+        .laptop-specs-brief strong { color: var(--text); }
+        .laptop-price-tag {
+            font-weight: 900;
+            color: var(--accent);
+            font-size: 0.92rem;
+        }
+        .laptop-actions {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .btn-outline {
+            flex: 1;
+            background: var(--surface-2);
+            color: var(--text);
+            border: 1px solid var(--border);
+            padding: 7px 10px;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .btn-outline.active-cmp {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .btn-wa-inquiry {
+            flex: 1;
+            background: #25D366;
+            color: #fff;
+            border: none;
+            padding: 7px 10px;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .load-more-wrap {
+            text-align: center;
+            margin-top: 18px;
+        }
+        .load-more-btn {
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--border);
+            padding: 10px 22px;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        .compare-bar {
+            position: fixed;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--surface);
+            border: 1.5px solid var(--accent);
+            border-radius: 14px;
+            padding: 10px 16px;
+            z-index: 250;
+            display: none;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+            max-width: 95vw;
+            flex-wrap: wrap;
+        }
+        .compare-bar.visible { display: flex; }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+        .compare-table th, .compare-table td {
+            border: 1px solid var(--border);
+            padding: 8px;
+            text-align: right;
+            vertical-align: top;
+        }
+        .compare-table th { background: var(--surface-2); color: var(--accent); }
+
+        .similar-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .similar-card {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 8px;
+            font-size: 0.78rem;
+            cursor: pointer;
+        }
+
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -380,7 +694,7 @@
             border-radius: 6px;
         }
 
-     .card-img-box {
+        .card-img-box {
             width: 100%;
             aspect-ratio: 1 / 1;
             background: #000000;
@@ -496,6 +810,7 @@
             max-height: 90vh;
             overflow-y: auto;
         }
+        .modal-content.wide-modal { max-width: 780px; }
         .modal-header {
             display: flex;
             justify-content: space-between;
@@ -584,7 +899,7 @@
             </div>
         </div>
         <div class="search-wrapper">
-            <input type="text" id="search" class="search-input" placeholder="ابحث عن شاحن، لابتوب، كاميرا، سماعة..." oninput="renderProducts()">
+            <input type="text" id="search" class="search-input" placeholder="ابحث عن شاحن، لابتوب، كاميرا، سماعة..." oninput="handleGlobalSearch()">
         </div>
     </div>
 </header>
@@ -626,6 +941,120 @@
         <option value="agency">شواحن وكالة (6,000 ر.ي)</option>
         <option value="commercial">شواحن تجارية (4,000 ر.ي)</option>
     </select>
+</div>
+
+<section class="laptops-section" id="laptops-section">
+    <div class="laptops-header-bar">
+        <div class="laptops-title-row">
+            <h2>💻 كتالوج اللابتوبات المتكامل — للاستفسار والتسعير</h2>
+            <button class="btn-outline" onclick="toggleFavOnly()" id="fav-filter-btn">⭐ المفضلة (0)</button>
+        </div>
+        <div class="spotlight-pills" id="spotlight-pills">
+            <button class="spotlight-pill active" onclick="setSpotlight('all', this)">الكل</button>
+            <button class="spotlight-pill" onclick="setSpotlight('latest', this)">أحدث اللابتوبات</button>
+            <button class="spotlight-pill" onclick="setSpotlight('gaming', this)">لابتوبات Gaming</button>
+            <button class="spotlight-pill" onclick="setSpotlight('business', this)">لابتوبات الأعمال</button>
+            <button class="spotlight-pill" onclick="setSpotlight('workstation', this)">محطات العمل</button>
+            <button class="spotlight-pill" onclick="setSpotlight('study-dev', this)">الدراسة والبرمجة</button>
+            <button class="spotlight-pill" onclick="setSpotlight('apple', this)">أجهزة Apple</button>
+        </div>
+        <div class="laptops-meta-bar">
+            <span id="laptops-count-label">عدد النتائج: 0</span>
+            <span>الأسعار في هذا القسم: <strong>تواصل للتسعير</strong> (كتالوج استفسار وليس إعلان مخزون مؤكد)</span>
+        </div>
+    </div>
+
+    <button class="mobile-filter-toggle" onclick="toggleMobileFilters()">🎛️ إظهار / إخفاء فلاتر اللابتوبات والمعالجات</button>
+
+    <div class="laptops-layout">
+        <aside class="laptops-sidebar" id="laptops-sidebar">
+            <div class="filter-group">
+                <label for="lp-search">بحث سريع (شركة، موديل، معالج)</label>
+                <input type="text" id="lp-search" placeholder="مثال: Latitude، i7، OLED..." oninput="resetAndRenderLaptops()">
+            </div>
+
+            <div class="filter-group">
+                <label for="lp-brand">الشركة المصنعة</label>
+                <select id="lp-brand" onchange="resetAndRenderLaptops()">
+                    <option value="all">جميع الشركات</option>
+                    <option value="Dell">Dell</option>
+                    <option value="HP">HP</option>
+                    <option value="ASUS">ASUS</option>
+                    <option value="Lenovo">Lenovo</option>
+                    <option value="Acer">Acer</option>
+                    <option value="MSI">MSI</option>
+                    <option value="Apple">Apple</option>
+                    <option value="Microsoft Surface">Microsoft Surface</option>
+                    <option value="Gigabyte">Gigabyte</option>
+                    <option value="Razer">Razer</option>
+                    <option value="Huawei">Huawei</option>
+                    <option value="Samsung">Samsung</option>
+                    <option value="LG">LG</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="lp-usecase">فئة الاستخدام</label>
+                <select id="lp-usecase" onchange="resetAndRenderLaptops()">
+                    <option value="all">جميع الفئات</option>
+                    <option value="الاستخدام اليومي والمنزلي">الاستخدام اليومي والمنزلي</option>
+                    <option value="الأعمال والشركات">الأعمال والشركات</option>
+                    <option value="الدراسة والجامعة">الدراسة والجامعة</option>
+                    <option value="البرمجة وتطوير البرمجيات">البرمجة وتطوير البرمجيات</option>
+                    <option value="التصميم والجرافيكس والمونتاج">التصميم والجرافيكس والمونتاج</option>
+                    <option value="Gaming">Gaming</option>
+                    <option value="Workstations">محطات العمل Workstations</option>
+                    <option value="خفيفة ونحيفة">خفيفة ونحيفة وسهلة الحمل</option>
+                    <option value="شاشات ومواصفات عالية">شاشات ومواصفات عالية</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="lp-cpu-family">فئة المعالج</label>
+                <select id="lp-cpu-family" onchange="resetAndRenderLaptops()">
+                    <option value="all">جميع المعالجات</option>
+                    <option value="Core i3">Intel Core i3</option>
+                    <option value="Core i5">Intel Core i5</option>
+                    <option value="Core i7">Intel Core i7</option>
+                    <option value="Core i9">Intel Core i9</option>
+                    <option value="Core Ultra">Intel Core Ultra (5 / 7 / 9)</option>
+                    <option value="Ryzen 3">AMD Ryzen 3</option>
+                    <option value="Ryzen 5">AMD Ryzen 5</option>
+                    <option value="Ryzen 7">AMD Ryzen 7</option>
+                    <option value="Ryzen 9">AMD Ryzen 9</option>
+                    <option value="Ryzen AI">AMD Ryzen AI</option>
+                    <option value="Apple M-Series">Apple (M1 - M5 / Pro / Max / Ultra)</option>
+                </select>
+            </div>
+
+            <button class="reset-filters-btn" onclick="resetLaptopFilters()">إعادة تعيين الفلاتر</button>
+        </aside>
+
+        <div>
+            <div class="laptops-toolbar">
+                <span>ترتيب الأجهزة:</span>
+                <select id="lp-sort" onchange="renderLaptops()">
+                    <option value="newest">الأحدث</option>
+                    <option value="name">حسب الاسم</option>
+                    <option value="category">حسب الفئة</option>
+                    <option value="specs">حسب المواصفات (الرام / الفئة)</option>
+                </select>
+            </div>
+
+            <div class="laptop-grid" id="laptop-grid"></div>
+            <div id="laptop-alternatives" style="margin-top: 16px;"></div>
+
+            <div class="load-more-wrap" id="load-more-wrap" style="display: none;">
+                <button class="load-more-btn" onclick="loadMoreLaptops()">تحميل المزيد من اللابتوبات</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="compare-bar" id="compare-bar">
+    <span id="compare-count-txt" style="font-weight: 800; font-size: 0.85rem;">المقارنة: 0 أجهزة</span>
+    <button class="add-btn" onclick="openCompareModal()">مقارنة الآن</button>
+    <button class="btn-outline" onclick="clearCompare()">مسح</button>
 </div>
 
 <main class="products-grid" id="products-grid"></main>
@@ -678,6 +1107,26 @@
     </div>
 </div>
 
+<div class="modal" id="laptop-detail-modal">
+    <div class="modal-content wide-modal">
+        <div class="modal-header">
+            <h3 id="detail-modal-title">تفاصيل اللابتوب</h3>
+            <button class="close-btn" onclick="closeLaptopDetail()">&times;</button>
+        </div>
+        <div id="detail-modal-body"></div>
+    </div>
+</div>
+
+<div class="modal" id="compare-modal">
+    <div class="modal-content wide-modal">
+        <div class="modal-header">
+            <h3>⚖️ مقارنة مواصفات اللابتوبات</h3>
+            <button class="close-btn" onclick="closeCompareModal()">&times;</button>
+        </div>
+        <div id="compare-modal-body"></div>
+    </div>
+</div>
+
 <script>
     const STORE_CONFIG = {
         whatsappNumber: "967776577218",
@@ -686,6 +1135,234 @@
         rates: { YER: 1, SAR: 1/142.5, USD: 1/535 },
         symbols: { YER: "ر.ي", SAR: "ر.س", USD: "$" }
     };
+
+    /* بيانات اللابتوبات المستقلة: مواصفات موثقة فقط، بدون اختلاق صور أو ادعاء توفر مخزون مؤكد */
+    const LAPTOPS = [
+        {
+            id: "lp-dell-7490-i7",
+            releaseOrder: 1,
+            brand: "Dell",
+            series: "Latitude",
+            model: "Latitude 7490",
+            tierBadge: "Business",
+            performanceTier: "أعمال وإنتاجية مكتبية",
+            useCases: ["الأعمال والشركات", "الاستخدام اليومي والمنزلي", "الدراسة والجامعة"],
+            cpu: {
+                vendor: "Intel",
+                tier: "Core i7",
+                generation: "الجيل الثامن (8th Gen)",
+                model: "Core i7-8650U",
+                cores: 4,
+                threads: 8
+            },
+            ram: "8GB DDR4 (قابل للترقية حتى 32GB)",
+            storage: "256GB M.2 NVMe PCIe SSD",
+            gpu: { name: "Intel UHD Graphics 620", type: "مدمج" },
+            display: { size: "14 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "60Hz", panel: "IPS" },
+            os: "Windows 10 Pro / Windows 11 Pro",
+            extras: "الوزن: حوالي 1.4 - 1.56 كجم | منافذ: Thunderbolt 3، USB 3.1، HDMI، RJ-45",
+            highlights: ["هيكل أعمال متين بسماكة نحيفة", "دعم منفذ Thunderbolt 3 وEthernet"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "Laptop Mag / مواصفات Latitude 7490"
+        },
+        {
+            id: "lp-lenovo-t480-i5",
+            releaseOrder: 2,
+            brand: "Lenovo",
+            series: "ThinkPad",
+            model: "ThinkPad T480",
+            tierBadge: "Business",
+            performanceTier: "أعمال وبرمجة خفيفة",
+            useCases: ["الأعمال والشركات", "البرمجة وتطوير البرمجيات", "الدراسة والجامعة"],
+            cpu: {
+                vendor: "Intel",
+                tier: "Core i5",
+                generation: "الجيل الثامن (8th Gen)",
+                model: "Core i5-8350U",
+                cores: 4,
+                threads: 8
+            },
+            ram: "16GB DDR4-2400 (منفذا SO-DIMM حتى 32GB)",
+            storage: "512GB M.2 NVMe SSD",
+            gpu: { name: "Intel UHD Graphics 620", type: "مدمج" },
+            display: { size: "14 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "غير محدد في النسخة القياسية", panel: "IPS مضاد للتوهج" },
+            os: "Windows 10 Pro / Windows 11",
+            extras: "نظام بطارية مزدوجة | منافذ: Thunderbolt 3، USB-C، 2x USB-A، HDMI، RJ-45",
+            highlights: ["لوحة مفاتيح ThinkPad المعروفة مع TrackPoint", "مرونة ترقية الذاكرة والتخزين"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "Lenovo PSREF ThinkPad T480"
+        },
+        {
+            id: "lp-hp-840g8-i7",
+            releaseOrder: 3,
+            brand: "HP",
+            series: "EliteBook",
+            model: "EliteBook 840 G8",
+            tierBadge: "Business",
+            performanceTier: "أعمال وتعدد مهام احترافي",
+            useCases: ["الأعمال والشركات", "البرمجة وتطوير البرمجيات", "خفيفة ونحيفة"],
+            cpu: {
+                vendor: "Intel",
+                tier: "Core i7",
+                generation: "الجيل الحادي عشر (11th Gen)",
+                model: "Core i7-1165G7",
+                cores: 4,
+                threads: 8
+            },
+            ram: "32GB DDR4 RAM",
+            storage: "512GB SSD",
+            gpu: { name: "Intel Iris Xe Graphics", type: "مدمج" },
+            display: { size: "14 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "غير محدد", panel: "IPS مضاد للتوهج" },
+            os: "Windows 11 Professional",
+            extras: "منافذ: 2x Thunderbolt 4، 2x USB-A، HDMI",
+            highlights: ["ذاكرة 32GB مناسبة للبيئات البرمجية والمهام المتعددة", "منفذا Thunderbolt 4"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "HP مواصفات EliteBook 840 G8"
+        },
+        {
+            id: "lp-asus-ux3405-u7",
+            releaseOrder: 4,
+            brand: "ASUS",
+            series: "Zenbook",
+            model: "Zenbook 14 OLED (UX3405)",
+            tierBadge: "Ultraportable OLED",
+            performanceTier: "خفيف ونحيف بشاشة OLED عالية",
+            useCases: ["خفيفة ونحيفة", "شاشات ومواصفات عالية", "الدراسة والجامعة", "الاستخدام اليومي والمنزلي"],
+            cpu: {
+                vendor: "Intel",
+                tier: "Core Ultra",
+                generation: "Intel Core Ultra (Series 1)",
+                model: "Core Ultra 7 155H",
+                cores: 16,
+                threads: 22
+            },
+            ram: "16GB / 32GB LPDDR5X",
+            storage: "1TB M.2 NVMe PCIe 4.0 SSD",
+            gpu: { name: "Intel Arc Graphics", type: "مدمج" },
+            display: { size: "14 بوصة", resolution: "2880 x 1800 (3K)", refresh: "120Hz", panel: "OLED 16:10" },
+            os: "Windows 11 Home / Pro",
+            extras: "الوزن: حوالي 1.28 كجم (2.82 lbs) | منافذ: 2x Thunderbolt 4، USB 3.2 Gen 1 Type-A، HDMI 2.1",
+            highlights: ["شاشة 14 بوصة 3K OLED بمعدل تحديث 120Hz", "معالج Core Ultra 7 155H بـ 16 نواة و22 خيطاً"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "ASUS الرسمي Zenbook 14 OLED UX3405"
+        },
+        {
+            id: "lp-lenovo-legion-pro5-16irx8",
+            releaseOrder: 5,
+            brand: "Lenovo",
+            series: "Legion",
+            model: "Legion Pro 5 16IRX8",
+            tierBadge: "Gaming",
+            performanceTier: "ألعاب وأداء رسومي مرتفع",
+            useCases: ["Gaming", "التصميم والجرافيكس والمونتاج", "شاشات ومواصفات عالية"],
+            cpu: {
+                vendor: "Intel",
+                tier: "Core i7",
+                generation: "الجيل الثالث عشر (13th Gen)",
+                model: "Core i7-13700HX",
+                cores: null,
+                threads: 24
+            },
+            ram: "16GB DDR5",
+            storage: "1TB NVMe SSD",
+            gpu: { name: "NVIDIA GeForce RTX 4060 Laptop GPU (8GB GDDR6)", type: "منفصل" },
+            display: { size: "16 بوصة", resolution: "2560 x 1600 (QHD+)", refresh: "165Hz", panel: "16:10 High Refresh" },
+            os: "Windows 11 Home",
+            extras: "كرت رسومي منفصل RTX 4060 بسعة 8GB",
+            highlights: ["شاشة 16 بوصة QHD+ بمعدل 165Hz", "كرت شاشة منفصل RTX 4060 للألعاب والتصميم"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات Legion Pro 5 16IRX8 الموثقة"
+        },
+        {
+            id: "lp-dell-precision-3580-i7",
+            releaseOrder: 6,
+            brand: "Dell",
+            series: "Precision",
+            model: "Precision 3580",
+            tierBadge: "Workstation",
+            performanceTier: "محطة عمل هندسية ومهنية",
+            useCases: ["Workstations", "الأعمال والشركات", "البرمجة وتطوير البرمجيات"],
+            cpu: {
+                vendor: "Intel",
+                tier: "Core i7",
+                generation: "الجيل الثالث عشر (13th Gen)",
+                model: "Core i7-1360P",
+                cores: 12,
+                threads: 16
+            },
+            ram: "32GB DDR5 RAM",
+            storage: "2TB M.2 NVMe SSD",
+            gpu: { name: "RTX A500 Mobile (4GB) / حسب التكوين", type: "منفصل" },
+            display: { size: "15.6 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "غير محدد", panel: "IPS مضاد للتوهج" },
+            os: "Windows",
+            extras: "الوزن: حوالي 1.61 كجم (3.55 lbs) في التكوين القياسي",
+            highlights: ["معالج 12 نواة و16 خيطاً مع ذاكرة 32GB DDR5", "سعة تخزين 2TB NVMe SSD"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات Dell Precision 3580 الموثقة"
+        },
+        {
+            id: "lp-surface-laptop-6-u5",
+            releaseOrder: 7,
+            brand: "Microsoft Surface",
+            series: "Surface Laptop",
+            model: "Surface Laptop 6 (13.5\")",
+            tierBadge: "Business",
+            performanceTier: "أعمال وتنقل يومي",
+            useCases: ["الأعمال والشركات", "خفيفة ونحيفة", "الدراسة والجامعة"],
+            cpu: {
+                vendor: "Intel",
+                tier: "Core Ultra",
+                generation: "Intel Core Ultra (Series 1)",
+                model: "Core Ultra 5 135H",
+                cores: 14,
+                threads: 18
+            },
+            ram: "16GB LPDDR5x",
+            storage: "256GB SSD",
+            gpu: { name: "Intel Arc Graphics (8 Xe-cores)", type: "مدمج" },
+            display: { size: "13.5 بوصة", resolution: "PixelSense لمس متعدد", refresh: "60Hz", panel: "PixelSense Touch 3:2" },
+            os: "Windows 11 Pro",
+            extras: "منافذ: Thunderbolt 4 / USB 4، USB 3.1 Gen 2، Surface Connect، منفذ سماعة",
+            highlights: ["شاشة لمس PixelSense بنسبة عرض 3:2", "منفذ Thunderbolt 4 ودعم Surface Connect"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات Surface Laptop 6 13.5 الموثقة"
+        },
+        {
+            id: "lp-macbook-air-13-m3",
+            releaseOrder: 8,
+            brand: "Apple",
+            series: "MacBook Air",
+            model: "MacBook Air (13-inch, M3, 2024)",
+            tierBadge: "Apple M-Series",
+            performanceTier: "خفيف ونحيف وبطارية طويلة",
+            useCases: ["خفيفة ونحيفة", "الدراسة والجامعة", "الاستخدام اليومي والمنزلي", "البرمجة وتطوير البرمجيات"],
+            cpu: {
+                vendor: "Apple",
+                tier: "Apple M-Series",
+                generation: "شريحة Apple M3 (2024)",
+                model: "Apple M3 (8-core CPU)",
+                cores: 8,
+                threads: null
+            },
+            ram: "16GB Unified Memory (قابل للتكوين حتى 24GB)",
+            storage: "256GB / 512GB SSD",
+            gpu: { name: "Apple M3 GPU (8-core أو 10-core حسب النسخة)", type: "مدمج" },
+            display: { size: "13.6 بوصة", resolution: "2560 x 1664 (Liquid Retina)", refresh: "60Hz", panel: "IPS LED مع True Tone وP3" },
+            os: "macOS",
+            extras: "الوزن: 1.24 كجم (2.7 lbs) | بطارية 52.6Wh | منافذ: MagSafe 3، 2x Thunderbolt / USB 4، سماعة 3.5mm",
+            highlights: ["تصميم ألمنيوم نحيف بوزن 1.24 كجم", "شاشة Liquid Retina بسطوع 500 nits ودعم P3"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "Apple Support مواصفات MacBook Air 13 M3"
+        }
+    ];
 
     const PRODUCTS = [
         {
@@ -1081,6 +1758,12 @@
     ];
 
     let currentCat = "الكل";
+    let currentSpotlight = "all";
+    let favOnly = false;
+    let laptopPageSize = 4;
+    let laptopVisibleCount = 4;
+    let compareIds = [];
+    let favIds = [];
     let cart = [];
 
     function toggleTheme() {
@@ -1096,16 +1779,328 @@
     function setCat(cat, btn) {
         currentCat = cat;
         document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
+        if (btn) btn.classList.add("active");
 
         const subfilters = document.getElementById("chargers-filters");
+        const laptopsSection = document.getElementById("laptops-section");
+        const mainGrid = document.getElementById("products-grid");
+
         if (cat === "شواحن") {
             subfilters.style.display = "flex";
         } else {
             subfilters.style.display = "none";
         }
 
-        renderProducts();
+        if (cat === "لابتوبات") {
+            laptopsSection.classList.add("active");
+            mainGrid.style.display = "none";
+            resetAndRenderLaptops();
+        } else {
+            laptopsSection.classList.remove("active");
+            mainGrid.style.display = "grid";
+            renderProducts();
+        }
+    }
+
+    function handleGlobalSearch() {
+        const q = document.getElementById("search").value.trim();
+        if (currentCat === "لابتوبات") {
+            document.getElementById("lp-search").value = q;
+            resetAndRenderLaptops();
+        } else {
+            renderProducts();
+        }
+    }
+
+    function setSpotlight(spot, btn) {
+        currentSpotlight = spot;
+        document.querySelectorAll(".spotlight-pill").forEach(b => b.classList.remove("active"));
+        if (btn) btn.classList.add("active");
+        resetAndRenderLaptops();
+    }
+
+    function toggleMobileFilters() {
+        document.getElementById("laptops-sidebar").classList.toggle("open");
+    }
+
+    function toggleFavOnly() {
+        favOnly = !favOnly;
+        const btn = document.getElementById("fav-filter-btn");
+        btn.style.borderColor = favOnly ? "var(--accent)" : "var(--border)";
+        resetAndRenderLaptops();
+    }
+
+    function toggleFav(id, event) {
+        if (event) event.stopPropagation();
+        if (favIds.includes(id)) {
+            favIds = favIds.filter(x => x !== id);
+        } else {
+            favIds.push(id);
+        }
+        document.getElementById("fav-filter-btn").innerText = `⭐ المفضلة (${favIds.length})`;
+        renderLaptops();
+    }
+
+    function resetLaptopFilters() {
+        document.getElementById("lp-search").value = "";
+        document.getElementById("search").value = "";
+        document.getElementById("lp-brand").value = "all";
+        document.getElementById("lp-usecase").value = "all";
+        document.getElementById("lp-cpu-family").value = "all";
+        currentSpotlight = "all";
+        favOnly = false;
+        document.querySelectorAll(".spotlight-pill").forEach((b, idx) => b.classList.toggle("active", idx === 0));
+        resetAndRenderLaptops();
+    }
+
+    function resetAndRenderLaptops() {
+        laptopVisibleCount = laptopPageSize;
+        renderLaptops();
+    }
+
+    function loadMoreLaptops() {
+        laptopVisibleCount += laptopPageSize;
+        renderLaptops();
+    }
+
+    function buildInquiryUrl(lp) {
+        const cpuText = `${lp.cpu.model} (${lp.cpu.generation})`;
+        const msg = `مرحباً متجر المدار للتكنولوجيا، أود الاستفسار عن السعر والتوفر للابتوب:\n*${lp.brand} ${lp.model}*\nالمعالج: ${cpuText}\nالرام: ${lp.ram}\nالتخزين: ${lp.storage}`;
+        return `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(msg)}`;
+    }
+
+    function getFilteredLaptops() {
+        const q = (document.getElementById("lp-search").value || "").trim().toLowerCase();
+        const brand = document.getElementById("lp-brand").value;
+        const useCase = document.getElementById("lp-usecase").value;
+        const cpuFamily = document.getElementById("lp-cpu-family").value;
+
+        return LAPTOPS.filter(lp => {
+            if (favOnly && !favIds.includes(lp.id)) return false;
+            if (brand !== "all" && lp.brand !== brand) return false;
+            if (useCase !== "all" && !lp.useCases.includes(useCase)) return false;
+            if (cpuFamily !== "all" && lp.cpu.tier !== cpuFamily) return false;
+
+            if (currentSpotlight === "gaming" && !lp.useCases.includes("Gaming")) return false;
+            if (currentSpotlight === "business" && !lp.useCases.includes("الأعمال والشركات")) return false;
+            if (currentSpotlight === "workstation" && !lp.useCases.includes("Workstations")) return false;
+            if (currentSpotlight === "study-dev" && !lp.useCases.includes("الدراسة والجامعة") && !lp.useCases.includes("البرمجة وتطوير البرمجيات")) return false;
+            if (currentSpotlight === "apple" && lp.brand !== "Apple") return false;
+            if (currentSpotlight === "latest" && lp.releaseOrder < 4) return false;
+
+            if (q) {
+                const hay = `${lp.brand} ${lp.series} ${lp.model} ${lp.cpu.model} ${lp.cpu.tier} ${lp.cpu.generation} ${lp.ram} ${lp.storage} ${lp.gpu.name} ${lp.useCases.join(" ")}`.toLowerCase();
+                if (!hay.includes(q)) return false;
+            }
+            return true;
+        });
+    }
+
+    function sortLaptopsList(list) {
+        const mode = document.getElementById("lp-sort").value;
+        const copy = [...list];
+        if (mode === "newest") {
+            copy.sort((a, b) => b.releaseOrder - a.releaseOrder);
+        } else if (mode === "name") {
+            copy.sort((a, b) => `${a.brand} ${a.model}`.localeCompare(`${b.brand} ${b.model}`, "ar"));
+        } else if (mode === "category") {
+            copy.sort((a, b) => (a.useCases[0] || "").localeCompare(b.useCases[0] || "", "ar"));
+        } else if (mode === "specs") {
+            copy.sort((a, b) => (b.cpu.cores || 0) - (a.cpu.cores || 0));
+        }
+        return copy;
+    }
+
+    function renderLaptops() {
+        const grid = document.getElementById("laptop-grid");
+        const altBox = document.getElementById("laptop-alternatives");
+        const loadWrap = document.getElementById("load-more-wrap");
+        const countLabel = document.getElementById("laptops-count-label");
+
+        const filtered = sortLaptopsList(getFilteredLaptops());
+        countLabel.innerText = `عدد النتائج: ${filtered.length} من أصل ${LAPTOPS.length}`;
+
+        grid.innerHTML = "";
+        altBox.innerHTML = "";
+
+        if (filtered.length === 0) {
+            loadWrap.style.display = "none";
+            grid.innerHTML = `<div class="laptop-card" style="grid-column: 1 / -1;"><p style="color:var(--text-muted);">لم يتم العثور على لابتوب مطابق لخيارات التصفية الحالية.</p></div>`;
+            const suggestions = LAPTOPS.slice(0, 3);
+            altBox.innerHTML = `
+                <div class="laptops-header-bar">
+                    <h3 style="font-size:1rem; font-weight:800; color:var(--primary); margin-bottom:8px;">أجهزة بديلة مقترحة من الكتالوج</h3>
+                    <div class="similar-list">
+                        ${suggestions.map(s => `
+                            <div class="similar-card" onclick="openLaptopDetail('${s.id}')">
+                                <strong>${s.brand} ${s.model}</strong><br>
+                                <span>${s.cpu.model}</span><br>
+                                <span style="color:var(--accent);">تواصل للتسعير</span>
+                            </div>
+                        `).join("")}
+                    </div>
+                </div>
+            `;
+            return;
+        }
+
+        const slice = filtered.slice(0, laptopVisibleCount);
+        slice.forEach(lp => {
+            const isFav = favIds.includes(lp.id);
+            const isCmp = compareIds.includes(lp.id);
+            const coresInfo = lp.cpu.cores ? `${lp.cpu.cores} أنوية` : "غير مذكور";
+            const threadsInfo = lp.cpu.threads ? `${lp.cpu.threads} خيط` : "غير مذكور";
+
+            const mediaBlock = lp.image
+                ? `<div class="laptop-media-placeholder"><img src="${lp.image}" alt="${lp.brand} ${lp.model}" loading="lazy"></div>`
+                : `<div class="laptop-media-placeholder">صورة الموديل قيد التجهيز بهوية المدار — <strong>${lp.brand} ${lp.model}</strong></div>`;
+
+            grid.innerHTML += `
+                <article class="laptop-card">
+                    <div>
+                        <div class="laptop-card-head">
+                            <span class="badge-tier">${lp.tierBadge}</span>
+                            <span class="badge-inquiry">تواصل للتسعير</span>
+                        </div>
+                        <div style="margin-top: 8px;">${mediaBlock}</div>
+                        <h3 class="card-title" style="margin-top: 10px;">${lp.brand} ${lp.model}</h3>
+                        <p style="font-size:0.78rem; color:var(--primary); font-weight:700; margin-bottom:6px;">
+                            ${lp.useCases.join(" • ")}
+                        </p>
+                        <ul class="laptop-specs-brief">
+                            <li><strong>المعالج:</strong> ${lp.cpu.model} (${lp.cpu.generation})</li>
+                            <li><strong>الأنوية والخيوط:</strong> ${coresInfo} / ${threadsInfo}</li>
+                            <li><strong>الرام:</strong> ${lp.ram}</li>
+                            <li><strong>التخزين:</strong> ${lp.storage}</li>
+                            <li><strong>كرت الشاشة:</strong> ${lp.gpu.name} (${lp.gpu.type})</li>
+                            <li><strong>الشاشة:</strong> ${lp.display.size} — ${lp.display.panel}</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                            <span class="laptop-price-tag">تواصل للتسعير</span>
+                            <button class="btn-outline" style="flex:none; padding:4px 8px;" onclick="toggleFav('${lp.id}', event)">${isFav ? "★ محفوظ" : "☆ حفظ"}</button>
+                        </div>
+                        <div class="laptop-actions">
+                            <button class="btn-outline" onclick="openLaptopDetail('${lp.id}')">التفاصيل</button>
+                            <button class="btn-outline ${isCmp ? "active-cmp" : ""}" onclick="toggleCompare('${lp.id}')">${isCmp ? "في المقارنة" : "قارن"}</button>
+                            <a href="${buildInquiryUrl(lp)}" target="_blank" class="btn-wa-inquiry">استفسار</a>
+                        </div>
+                    </div>
+                </article>
+            `;
+        });
+
+        loadWrap.style.display = filtered.length > laptopVisibleCount ? "block" : "none";
+    }
+
+    function openLaptopDetail(id) {
+        const lp = LAPTOPS.find(x => x.id === id);
+        if (!lp) return;
+
+        const similar = LAPTOPS.filter(x => x.id !== lp.id && (x.brand === lp.brand || x.useCases.some(u => lp.useCases.includes(u)))).slice(0, 3);
+
+        document.getElementById("detail-modal-title").innerText = `${lp.brand} ${lp.model}`;
+        document.getElementById("detail-modal-body").innerHTML = `
+            <p style="color:var(--accent); font-weight:900; margin-bottom:10px;">السعر: تواصل للتسعير (كتالوج استفسار)</p>
+            <p style="font-size:0.85rem; margin-bottom:10px;"><strong>فئات الاستخدام:</strong> ${lp.useCases.join("، ")}</p>
+            <table class="compare-table">
+                <tr><th>الشركة والسلسلة</th><td>${lp.brand} — ${lp.series} (${lp.model})</td></tr>
+                <tr><th>المعالج والجيل</th><td>${lp.cpu.model} | الفئة: ${lp.cpu.tier} | الجيل: ${lp.cpu.generation}</td></tr>
+                <tr><th>الأنوية والخيوط</th><td>الأنوية: ${lp.cpu.cores ?? "غير مذكور"} | الخيوط: ${lp.cpu.threads ?? "غير مذكور"}</td></tr>
+                <tr><th>الذاكرة RAM</th><td>${lp.ram}</td></tr>
+                <tr><th>التخزين</th><td>${lp.storage}</td></tr>
+                <tr><th>كرت الشاشة GPU</th><td>${lp.gpu.name} (${lp.gpu.type})</td></tr>
+                <tr><th>الشاشة</th><td>${lp.display.size} | الدقة: ${lp.display.resolution} | التحديث: ${lp.display.refresh} | النوع: ${lp.display.panel}</td></tr>
+                <tr><th>نظام التشغيل</th><td>${lp.os}</td></tr>
+                <tr><th>تفاصيل إضافية</th><td>${lp.extras}</td></tr>
+                <tr><th>مرجع المواصفات</th><td>${lp.sourceNote}</td></tr>
+            </table>
+            <div style="margin-top:12px;">
+                <strong style="font-size:0.85rem;">المميزات الأساسية:</strong>
+                <ul style="padding-right:18px; font-size:0.82rem; color:var(--text-muted); margin-top:4px;">
+                    ${lp.highlights.map(h => `<li>${h}</li>`).join("")}
+                </ul>
+            </div>
+            <a href="${buildInquiryUrl(lp)}" target="_blank" class="whatsapp-btn" style="display:block; text-align:center; text-decoration:none;">تواصل واتساب للاستفسار عن السعر والتوفر 💬</a>
+            ${similar.length > 0 ? `
+                <div style="margin-top:16px;">
+                    <strong style="font-size:0.85rem; color:var(--primary);">أجهزة مشابهة:</strong>
+                    <div class="similar-list">
+                        ${similar.map(s => `
+                            <div class="similar-card" onclick="openLaptopDetail('${s.id}')">
+                                <strong>${s.brand} ${s.model}</strong><br>
+                                <span>${s.cpu.model}</span><br>
+                                <span style="color:var(--accent);">تواصل للتسعير</span>
+                            </div>
+                        `).join("")}
+                    </div>
+                </div>
+            ` : ""}
+        `;
+        document.getElementById("laptop-detail-modal").classList.add("open");
+    }
+
+    function closeLaptopDetail() {
+        document.getElementById("laptop-detail-modal").classList.remove("open");
+    }
+
+    function toggleCompare(id) {
+        if (compareIds.includes(id)) {
+            compareIds = compareIds.filter(x => x !== id);
+        } else {
+            if (compareIds.length >= 3) {
+                alert("يمكن مقارنة حتى 3 أجهزة في وقت واحد.");
+                return;
+            }
+            compareIds.push(id);
+        }
+        updateCompareBar();
+        renderLaptops();
+    }
+
+    function clearCompare() {
+        compareIds = [];
+        updateCompareBar();
+        renderLaptops();
+    }
+
+    function updateCompareBar() {
+        const bar = document.getElementById("compare-bar");
+        document.getElementById("compare-count-txt").innerText = `المقارنة: ${compareIds.length} أجهزة`;
+        bar.classList.toggle("visible", compareIds.length > 0);
+    }
+
+    function openCompareModal() {
+        if (compareIds.length < 2) {
+            alert("اختر جهازين على الأقل للمقارنة.");
+            return;
+        }
+        const items = compareIds.map(id => LAPTOPS.find(x => x.id === id)).filter(Boolean);
+        document.getElementById("compare-modal-body").innerHTML = `
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>المواصفة</th>
+                        ${items.map(it => `<th>${it.brand} ${it.model}</th>`).join("")}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><th>السعر</th>${items.map(() => `<td>تواصل للتسعير</td>`).join("")}</tr>
+                    <tr><th>المعالج</th>${items.map(it => `<td>${it.cpu.model} (${it.cpu.generation})</td>`).join("")}</tr>
+                    <tr><th>الأنوية / الخيوط</th>${items.map(it => `<td>${it.cpu.cores ?? "-"} أنوية / ${it.cpu.threads ?? "-"} خيط</td>`).join("")}</tr>
+                    <tr><th>الرام</th>${items.map(it => `<td>${it.ram}</td>`).join("")}</tr>
+                    <tr><th>التخزين</th>${items.map(it => `<td>${it.storage}</td>`).join("")}</tr>
+                    <tr><th>كرت الشاشة</th>${items.map(it => `<td>${it.gpu.name} (${it.gpu.type})</td>`).join("")}</tr>
+                    <tr><th>الشاشة</th>${items.map(it => `<td>${it.display.size} — ${it.display.resolution} (${it.display.panel})</td>`).join("")}</tr>
+                </tbody>
+            </table>
+        `;
+        document.getElementById("compare-modal").classList.add("open");
+    }
+
+    function closeCompareModal() {
+        document.getElementById("compare-modal").classList.remove("open");
     }
 
     function onVariantChange(productId, selectElem) {
@@ -1286,4 +2281,3 @@
 </script>
 </body>
 </html>
-```[cite: 26]
