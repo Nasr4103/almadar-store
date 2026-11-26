@@ -351,6 +351,28 @@
             font-weight: 900;
             color: var(--accent);
         }
+        .custom-laptop-inquiry-box {
+            background: var(--surface-2);
+            border: 1px solid rgba(245, 158, 11, 0.45);
+            border-radius: 12px;
+            padding: 12px 14px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .custom-laptop-inquiry-box strong {
+            display: block;
+            font-size: 0.92rem;
+            color: var(--text);
+        }
+        .custom-laptop-inquiry-box p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
         .laptops-meta-bar {
             display: flex;
             justify-content: space-between;
@@ -949,6 +971,15 @@
             <h2>💻 كتالوج اللابتوبات المتكامل — للاستفسار والتسعير</h2>
             <button class="btn-outline" onclick="toggleFavOnly()" id="fav-filter-btn">⭐ المفضلة (0)</button>
         </div>
+
+        <div class="custom-laptop-inquiry-box">
+            <div>
+                <strong>تواصل معنا لأي لابتوب معاك أو مواصفات غير موجودة في الموقع</strong>
+                <p>إذا كان لديك جهاز ترغب بعرضه أو تبحث عن مواصفات وتكوينات محددة غير مدرجة، راسلنا مباشرة عبر واتساب وسنساعدك.</p>
+            </div>
+            <a href="https://wa.me/967776577218?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D8%AA%D8%AC%D8%B1%20%D8%A7%D9%84%D9%85%D8%AF%D8%A7%D8%B1%20%D9%84%D9%84%D8%AA%D9%83%D9%86%D9%88%D9%84%D9%88%D8%AC%D9%8A%D8%A7%D8%8C%20%D8%A3%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83%D9%85%20%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D9%84%D8%A7%D8%A8%D8%AA%D9%88%D8%A8%20%D8%A3%D9%88%20%D9%85%D9%88%D8%A7%D8%B5%D9%81%D8%A7%D8%AA%20%D8%BA%D9%8A%D8%B1%20%D9%85%D9%88%D8%AC%D9%88%D8%AF%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%88%D9%82%D8%B9." target="_blank" class="btn-wa-inquiry" style="flex:none; padding:9px 16px;">تواصل معنا عبر واتساب 💬</a>
+        </div>
+
         <div class="spotlight-pills" id="spotlight-pills">
             <button class="spotlight-pill active" onclick="setSpotlight('all', this)">الكل</button>
             <button class="spotlight-pill" onclick="setSpotlight('latest', this)">أحدث اللابتوبات</button>
@@ -970,7 +1001,7 @@
         <aside class="laptops-sidebar" id="laptops-sidebar">
             <div class="filter-group">
                 <label for="lp-search">بحث سريع (شركة، موديل، معالج)</label>
-                <input type="text" id="lp-search" placeholder="مثال: Latitude، i7، OLED..." oninput="resetAndRenderLaptops()">
+                <input type="text" id="lp-search" placeholder="مثال: Latitude، i7، i5، الجيل الثامن..." oninput="resetAndRenderLaptops()">
             </div>
 
             <div class="filter-group">
@@ -1808,6 +1839,174 @@
             image: "",
             inquiryOnly: true,
             sourceNote: "Apple Support مواصفات MacBook Pro 14 M3 Pro"
+        },
+        {
+            id: "lp-dell-latitude-5400-i5-8th",
+            releaseOrder: 33,
+            brand: "Dell",
+            series: "Latitude",
+            model: "Latitude 5400",
+            tierBadge: "Business",
+            performanceTier: "أعمال ومهام مكتبية اقتصادية وعملية",
+            useCases: ["الأعمال والشركات", "الاستخدام اليومي والمنزلي", "الدراسة والجامعة"],
+            cpu: { vendor: "Intel", tier: "Core i5", generation: "الجيل الثامن (8th Gen)", model: "Core i5-8265U", cores: 4, threads: 8 },
+            ram: "8GB / 16GB DDR4",
+            storage: "256GB / 512GB M.2 SSD",
+            gpu: { name: "Intel UHD Graphics 620", type: "مدمج" },
+            display: { size: "14 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "60Hz", panel: "IPS Anti-Glare" },
+            os: "Windows 10 Pro / Windows 11",
+            extras: "منافذ: USB Type-C، 3x USB 3.1 Gen 1، HDMI، RJ-45",
+            highlights: ["خيار عملي ومناسب للأعمال والدراسة", "معالج رباعي النوى بـ 8 خيوط"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات Dell Latitude 5400 الموثقة"
+        },
+        {
+            id: "lp-dell-latitude-7480-i7-7th",
+            releaseOrder: 34,
+            brand: "Dell",
+            series: "Latitude",
+            model: "Latitude 7480",
+            tierBadge: "Business",
+            performanceTier: "مهام مكتبية وتصفح ودراسة",
+            useCases: ["الأعمال والشركات", "الاستخدام اليومي والمنزلي", "خفيفة ونحيفة"],
+            cpu: { vendor: "Intel", tier: "Core i7", generation: "الجيل السابع (7th Gen)", model: "Core i7-7600U", cores: 2, threads: 4 },
+            ram: "8GB / 16GB DDR4",
+            storage: "256GB M.2 SSD",
+            gpu: { name: "Intel HD Graphics 620", type: "مدمج" },
+            display: { size: "14 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "60Hz", panel: "IPS" },
+            os: "Windows 10 Pro",
+            extras: "تصميم خفيف ومنافذ متكاملة للاستخدام المكتبي",
+            highlights: ["مناسب للمهام اليومية والعمل الإداري", "شاشة 14 بوصة بدقة FHD"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات Dell Latitude 7480 الموثقة"
+        },
+        {
+            id: "lp-hp-elitebook-840g5-i5-8th",
+            releaseOrder: 35,
+            brand: "HP",
+            series: "EliteBook",
+            model: "EliteBook 840 G5",
+            tierBadge: "Business",
+            performanceTier: "أعمال ودراسة ومهام مكتبية",
+            useCases: ["الأعمال والشركات", "الدراسة والجامعة", "الاستخدام اليومي والمنزلي"],
+            cpu: { vendor: "Intel", tier: "Core i5", generation: "الجيل الثامن (8th Gen)", model: "Core i5-8250U", cores: 4, threads: 8 },
+            ram: "8GB / 16GB DDR4",
+            storage: "256GB / 512GB NVMe SSD",
+            gpu: { name: "Intel UHD Graphics 620", type: "مدمج" },
+            display: { size: "14 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "60Hz", panel: "IPS Anti-Glare" },
+            os: "Windows 10 Pro / Windows 11",
+            extras: "منافذ: Thunderbolt 3 (USB-C)، 2x USB 3.1 Gen 1، HDMI، RJ-45",
+            highlights: ["معالج 4 أنوية و8 خيوط من الجيل الثامن", "هيكل أعمال عملي وسهل الحمل"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات HP EliteBook 840 G5 الموثقة"
+        },
+        {
+            id: "lp-hp-probook-450g5-i5-7th",
+            releaseOrder: 36,
+            brand: "HP",
+            series: "ProBook",
+            model: "ProBook 450 G5",
+            tierBadge: "Business",
+            performanceTier: "استخدام مكتبي ودراسي يومي",
+            useCases: ["الأعمال والشركات", "الدراسة والجامعة", "الاستخدام اليومي والمنزلي"],
+            cpu: { vendor: "Intel", tier: "Core i5", generation: "الجيل السابع (7th Gen)", model: "Core i5-7200U", cores: 2, threads: 4 },
+            ram: "8GB DDR4",
+            storage: "256GB SSD",
+            gpu: { name: "Intel HD Graphics 620", type: "مدمج" },
+            display: { size: "15.6 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "60Hz", panel: "IPS Anti-Glare" },
+            os: "Windows 10 Pro",
+            extras: "شاشة 15.6 بوصة مع منافذ USB وHDMI وRJ-45",
+            highlights: ["شاشة كبيرة 15.6 بوصة للمستندات", "مناسب للدراسة والمهام المكتبية الأساسية"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات HP ProBook 450 G5 الموثقة"
+        },
+        {
+            id: "lp-lenovo-thinkpad-t470-i5-6th",
+            releaseOrder: 37,
+            brand: "Lenovo",
+            series: "ThinkPad",
+            model: "ThinkPad T470",
+            tierBadge: "Business",
+            performanceTier: "مهام مكتبية وبرمجة خفيفة",
+            useCases: ["الأعمال والشركات", "الاستخدام اليومي والمنزلي", "البرمجة وتطوير البرمجيات"],
+            cpu: { vendor: "Intel", tier: "Core i5", generation: "الجيل السادس (6th Gen)", model: "Core i5-6300U", cores: 2, threads: 4 },
+            ram: "8GB / 16GB DDR4",
+            storage: "256GB SSD",
+            gpu: { name: "Intel HD Graphics 520", type: "مدمج" },
+            display: { size: "14 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "60Hz", panel: "IPS" },
+            os: "Windows 10 Pro",
+            extras: "منافذ: USB-C / Thunderbolt 3، 3x USB 3.0، HDMI، RJ-45",
+            highlights: ["لوحة مفاتيح ThinkPad مريحة للكتابة", "خيار اقتصادي ومناسب للمهام اليومية"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات Lenovo ThinkPad T470 الموثقة"
+        },
+        {
+            id: "lp-lenovo-ideapad3-15-i3-10th",
+            releaseOrder: 38,
+            brand: "Lenovo",
+            series: "IdeaPad",
+            model: "IdeaPad 3 (15\", 10th Gen)",
+            tierBadge: "Everyday",
+            performanceTier: "استخدام يومي ودراسة ومهام خفيفة",
+            useCases: ["الاستخدام اليومي والمنزلي", "الدراسة والجامعة"],
+            cpu: { vendor: "Intel", tier: "Core i3", generation: "الجيل العاشر (10th Gen)", model: "Core i3-1005G1", cores: 2, threads: 4 },
+            ram: "8GB DDR4",
+            storage: "256GB / 512GB NVMe SSD",
+            gpu: { name: "Intel UHD Graphics", type: "مدمج" },
+            display: { size: "15.6 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "60Hz", panel: "IPS / TN (حسب النسخة)" },
+            os: "Windows 10 / Windows 11",
+            extras: "معالج الجيل العاشر Core i3-1005G1 مع تخزين SSD",
+            highlights: ["مناسب للتصفح والمستندات والدراسة", "تخزين SSD سريع"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات Lenovo IdeaPad 3 1005G1 الموثقة"
+        },
+        {
+            id: "lp-acer-aspire-e15-e5-575-i5-7th",
+            releaseOrder: 39,
+            brand: "Acer",
+            series: "Aspire",
+            model: "Aspire E15 (E5-575)",
+            tierBadge: "Everyday",
+            performanceTier: "استخدام منزلي ودراسة ومهام يومية",
+            useCases: ["الاستخدام اليومي والمنزلي", "الدراسة والجامعة"],
+            cpu: { vendor: "Intel", tier: "Core i5", generation: "الجيل السابع (7th Gen)", model: "Core i5-7200U", cores: 2, threads: 4 },
+            ram: "8GB DDR4",
+            storage: "256GB SSD",
+            gpu: { name: "Intel HD Graphics 620", type: "مدمج" },
+            display: { size: "15.6 بوصة", resolution: "1920 x 1080 (FHD)", refresh: "60Hz", panel: "IPS" },
+            os: "Windows 10 Home",
+            extras: "شاشة 15.6 بوصة مع منافذ متعددة للاستخدام المنزلي",
+            highlights: ["مناسب للدراسة والمهام اليومية البسيطة", "شاشة 15.6 بوصة"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات Acer Aspire E15 E5-575 الموثقة"
+        },
+        {
+            id: "lp-hp-pavilion15-bc200-i5-5th",
+            releaseOrder: 40,
+            brand: "HP",
+            series: "Pavilion",
+            model: "Pavilion 15 (5th Gen)",
+            tierBadge: "Everyday",
+            performanceTier: "استخدام منزلي ومهام خفيفة",
+            useCases: ["الاستخدام اليومي والمنزلي"],
+            cpu: { vendor: "Intel", tier: "Core i5", generation: "الجيل الخامس (5th Gen)", model: "Core i5-5200U", cores: 2, threads: 4 },
+            ram: "8GB DDR3L",
+            storage: "256GB SSD",
+            gpu: { name: "Intel HD Graphics 5500", type: "مدمج" },
+            display: { size: "15.6 بوصة", resolution: "1366 x 768 (HD) / 1920 x 1080 (حسب النسخة)", refresh: "60Hz", panel: "LED" },
+            os: "Windows 10",
+            extras: "مناسب للتصفح الخفيف وتشغيل الملفات المكتبية الأساسية",
+            highlights: ["خيار اقتصادي للمهام الخفيفة", "تخزين SSD لتحسين الاستجابة"],
+            image: "",
+            inquiryOnly: true,
+            sourceNote: "مواصفات HP Pavilion 15 5200U الموثقة"
         }
     ];
 
@@ -2372,7 +2571,7 @@
 
         if (filtered.length === 0) {
             loadWrap.style.display = "none";
-            grid.innerHTML = `<div class="laptop-card" style="grid-column: 1 / -1;"><p style="color:var(--text-muted);">لم يتم العثور على لابتوب مطابق لخيارات التصفية الحالية.</p></div>`;
+            grid.innerHTML = `<div class="laptop-card" style="grid-column: 1 / -1;"><p style="color:var(--text-muted);">لم يتم العثور على لابتوب مطابق لخيارات التصفية الحالية. تواصل معنا لأي لابتوب معاك أو مواصفات غير موجودة في الموقع.</p></div>`;
             const suggestions = LAPTOPS.slice(0, 3);
             altBox.innerHTML = `
                 <div class="laptops-header-bar">
